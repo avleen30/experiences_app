@@ -4,5 +4,6 @@
 ## Setup
 1. git clone
 2. bundle install
+3. bin/rails s -b 0.0.0.0 to start server
 
 #### Made with love by Asia, Sean and Avleen

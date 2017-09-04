@@ -2,6 +2,7 @@
 
 
 ## Setup
-
+git clone
+bundle install
 
 #### Made with love by Asia, Sean and Avleen

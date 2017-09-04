@@ -2,7 +2,7 @@
 
 
 ## Setup
-git clone
-bundle install
+1. git clone
+2. bundle install
 
 #### Made with love by Asia, Sean and Avleen

@@ -10,19 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906004852) do
+ActiveRecord::Schema.define(version: 20170906205919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "cover_img"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "creator_id"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.index ["category_id"], name: "index_events_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+  end
+
+  create_table "events_users", force: :cascade do |t|
+    t.string   "status"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_events_users_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_events_users_on_user_id", using: :btree
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "content"
+    t.string   "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_posts_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "gender"
+    t.string   "avatar"
+    t.date     "dob"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "events", "categories"
+  add_foreign_key "events", "users"
+  add_foreign_key "events_users", "events"
+  add_foreign_key "events_users", "users"
+  add_foreign_key "posts", "events"
+  add_foreign_key "posts", "users"
 end

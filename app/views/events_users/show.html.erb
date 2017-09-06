@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @events_user.status %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @events_user.rating %>
+</p>
+
+<%= link_to 'Edit', edit_events_user_path(@events_user) %> |
+<%= link_to 'Back', events_users_path %>

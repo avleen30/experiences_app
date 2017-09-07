@@ -4,6 +4,7 @@
 1. git clone
 2. bundle install
 3. bin/rails db:migrate
-4. bin/rails s -b 0.0.0.0 to start server
+4. bin/rails db:seed
+5. bin/rails s -b 0.0.0.0 to start server
 
 #### Made with love by Asia, Sean and Avleen

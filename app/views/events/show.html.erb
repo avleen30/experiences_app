@@ -42,3 +42,12 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+<div id='event-map' class="event_detail_map"></div>
+
+<script>
+  window.event = <%== @event.to_json %>;
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=
+<%= Rails.application.secrets.google_key %>&callback=initMap_detail">
+</script>

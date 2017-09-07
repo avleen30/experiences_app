@@ -13,15 +13,21 @@ As a user, I want to browse and join user-created events (aka. experiences) eith
 
 After joining an event, I should be able to post comments on the event's page and be able to rate the event at some point after it has ended.
 
+
 ##Wire-frame / Storyboard
+Adobe Experience Design:
+https://github.com/avleen30/experiences_app/blob/readme_edit/public/Experiences_App.xd
 
-
-
-
-
-
+PDF:
+https://github.com/avleen30/experiences_app/blob/readme_edit/public/Experiences_App.pdf
 
 
 ##ERD
 https://github.com/avleen30/experiences_app/blob/readme_edit/public/ERD-FINALS.pdf
 
+
+##Stack
+-- Front-end:   Javascript
+-- Back-end:    Ruby on Rails
+-- Database:    PostgreSQL
+-- API(s):      (1) GoogleMaps, (2) TBD

@@ -1,5 +1,4 @@
-# Experiences is a social app that allows you to create or join experiences closeby
-
+# Experiences is a social app that allows you to create or join experiences close-by
 
 ## Setup
 1. git clone

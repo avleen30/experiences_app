@@ -7,8 +7,8 @@ one:
   start_date: 2017-09-06 19:07:46
   end_date: 2017-09-06 19:07:46
   creator_id: 1
-  longitude: 1.5
-  latitude: 1.5
+  lng: 1.5
+  lat: 1.5
 
 two:
   name: MyString
@@ -17,5 +17,5 @@ two:
   start_date: 2017-09-06 19:07:46
   end_date: 2017-09-06 19:07:46
   creator_id: 1
-  longitude: 1.5
-  latitude: 1.5
+  lng: 1.5
+  lat: 1.5

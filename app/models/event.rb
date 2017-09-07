@@ -11,7 +11,7 @@ class Event < ApplicationRecord
     validates :creator_id, presence: true
     validates :start_date, presence: true
     validates :end_date, presence: true
-    validates :longitude, presence: true
-    validates :latitude, presence: true
+    validates :lng, presence: true
+    validates :lat, presence: true
 
 end

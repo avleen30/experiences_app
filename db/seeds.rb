@@ -60,8 +60,8 @@ event1 = cat1.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -71,8 +71,8 @@ event2 = cat2.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -82,8 +82,8 @@ event3 = cat3.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -93,8 +93,8 @@ event4 = cat4.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -104,8 +104,8 @@ event5 = cat5.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -116,7 +116,7 @@ event6 = cat6.events.create!({
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -127,7 +127,7 @@ event7 = cat7.events.create!({
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -137,8 +137,8 @@ event8 = cat8.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -148,8 +148,8 @@ event9 = cat9.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -159,8 +159,8 @@ event10 = cat10.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  latitude: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 

@@ -34,25 +34,27 @@ cat14 = Category.find_or_create_by! name: 'Shopping'
 cat15 = Category.find_or_create_by! name: 'Others'
 
 ## USERS
-
+EventsUser.destroy_all
 User.destroy_all
+Event.destroy_all
 
-User.populate 50 do |person|
-  person.first_name = Faker::Name.first_name
-  person.last_name = Faker::Name.last_name
-  person.email = Faker::Internet.email
-  person.password_digest = '123'
-  # person.password_confirmation = '123'
-  person.avatar = Faker::Avatar.image
+50.times do
+  u=User.new
+  u.first_name = Faker::Name.first_name
+  u.last_name = Faker::Name.last_name
+  u.email = Faker::Internet.email
+  u.password = '123'
+  u.password_confirmation = '123'
+  u.avatar = Faker::Avatar.image
   gender_array = ["Male", "Female"]
-  person.gender = gender_array.shuffle.sample
+  u.gender = gender_array.shuffle.sample
+  u.save
 end
 
 ## EVENTS
 
 puts "Re-creating Events ..."
 
-Event.destroy_all
 
 event1 = cat1.events.create!({
   name: "Hike",
@@ -62,7 +64,7 @@ event1 = cat1.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event2 = cat2.events.create!({
@@ -73,7 +75,7 @@ event2 = cat2.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event3 = cat3.events.create!({
@@ -84,7 +86,7 @@ event3 = cat3.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event4 = cat4.events.create!({
@@ -95,7 +97,7 @@ event4 = cat4.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event5 = cat5.events.create!({
@@ -106,7 +108,7 @@ event5 = cat5.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event6 = cat6.events.create!({
@@ -117,7 +119,7 @@ event6 = cat6.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event7 = cat7.events.create!({
@@ -128,7 +130,7 @@ event7 = cat7.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event8 = cat8.events.create!({
@@ -139,7 +141,7 @@ event8 = cat8.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event9 = cat9.events.create!({
@@ -150,7 +152,7 @@ event9 = cat9.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 event10 = cat10.events.create!({
@@ -161,17 +163,23 @@ event10 = cat10.events.create!({
   end_date: DateTime.new(2017,9,10),
   longitude: rand(43.63..43.67),
   latitude: rand(79.23..79.49)*(-1),
-  creator_id: rand(1..50)
+  creator_id: User.all.shuffle.sample.id
 })
 
 ##events_users
 
-# Events_user.populate 50 do |person|
-#   status_array = ["Going", "Interested"]
-#   person.status = status_array.shuffle.sample
-#   rating_array = [1,2,3,4,5]
-#   person.rating = rating_array.shuffle.sample
-# end
+200.times do
+  eu = EventsUser.new
+  e = Event.all.shuffle.sample
+  u = User.all.shuffle.sample
+  eu.user = u
+  eu.event = e
+  status_array = ["Going", "Interested"]
+  eu.status = status_array.shuffle.sample
+  rating_array = [1,2,3,4,5]
+  eu.rating = rating_array.shuffle.sample
+  eu.save
+end
 
 
 # user1 = User.create!({

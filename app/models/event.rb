@@ -4,7 +4,7 @@ class Event < ApplicationRecord
     belongs_to :category
 
     has_many :reviews
-    has_many :posts
+    has_many :posts, -> {order "created_at DESC"}
 
     validates :name, presence: true
     validates :description, presence: true

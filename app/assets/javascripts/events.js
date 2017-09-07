@@ -1,33 +1,20 @@
 
-function initMap() {
-        var Toronto = {lat: 43.6532, lng: -79.3832};
-        var map = new google.maps.Map(document.getElementById('event-map'), {
-          zoom: 10,
-          center: Toronto
-        });
-        var contentString = '<div id="content">'+
-          '<div id="siteNotice">'+
-          '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">${event.name}</h1>'+
-          '<div id="bodyContent">'+
-            '{description: event.description}' +
-          '</div>'+
-        '</div>';
 
-        fetch('/events.json')
+
+function initMap_detail() {
+        var toronto = {lat: 43.6532, lng: -79.3832};
+        var map = new google.maps.Map(document.getElementById('event-map'), {
+          zoom: 12,
+          center: toronto
+        });
+
+        fetch('/events/'+window.event.id+'.json')
           .then( function(resp) { return resp.json(); })
           .then( function(json) {
-            json.forEach( function(event) {
-               var infowindow = new google.maps.InfoWindow({
-                content: contentString
-              });
-              var marker = new google.maps.Marker({
-                position: {lat: event.lat, lng: event.lng},
-                map: map
-              })
-              marker.addListener('click', function() {
-              infowindow.open(map, marker);
-              });
+            var marker = new google.maps.Marker({
+              position: {lat: json.lat, lng: json.lng},
+              map: map
             })
           });
         }
+

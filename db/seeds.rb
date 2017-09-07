@@ -115,8 +115,8 @@ event6 = cat6.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  lng: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 
@@ -126,8 +126,8 @@ event7 = cat7.events.create!({
   cover_img: Faker::Avatar.image,
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
-  longitude: rand(43.63..43.67),
-  lng: rand(79.23..79.49)*(-1),
+  lng: rand(43.63..43.67),
+  lat: rand(79.23..79.49)*(-1),
   creator_id: rand(1..50)
 })
 

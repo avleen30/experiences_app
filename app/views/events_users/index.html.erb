@@ -7,6 +7,8 @@
     <tr>
       <th>Status</th>
       <th>Rating</th>
+      <th>User_ID</th>
+      <th>Event_ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +18,8 @@
       <tr>
         <td><%= events_user.status %></td>
         <td><%= events_user.rating %></td>
+        <td><%= events_user.user_id %></td>
+        <td><%= events_user.event_id %></td>
         <td><%= link_to 'Show', events_user %></td>
         <td><%= link_to 'Edit', edit_events_user_path(events_user) %></td>
         <td><%= link_to 'Destroy', events_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

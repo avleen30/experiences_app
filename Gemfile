@@ -51,14 +51,11 @@ gem 'carrierwave'
 #RMagick is an interface between Ruby and ImageMagick.
 gem 'rmagick'
 
-gem 'populator'
 gem 'auto_html', '~>1.6.4'
 gem 'sanitize'
 
 gem 'active_model_serializers'
 
-#google-auth
-gem "omniauth-google-oauth2", "~> 0.2.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

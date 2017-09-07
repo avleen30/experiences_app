@@ -12,14 +12,45 @@
 
 <script>
       window.events = <%== @events.to_json %>;
+function contentData (event){
+  console.log('COVER IMAGE', event.cover_img)
+return '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<img src="' + event.cover_img + '" />' +
+            '<h3 id="firstHeading" class="firstHeading">' + event.name + '</h3>'+
 
-        /*window.events.map( function(event) {
-          var marker = new google.maps.Marker({
-            position: {lat: event.lat, lng: event.lng},
-            map: map
-          })
-        });*/
-      //}
+          '<div id="bodyContent">'+ event.description +'</div>'+
+        '</div>';
+}
+function initMap() {
+        var Toronto = {lat: 43.6532, lng: -79.3832};
+        var map = new google.maps.Map(document.getElementById('event-map'), {
+          zoom: 12,
+          center: Toronto
+        });
+
+
+
+        fetch('/events.json')
+          .then( function(resp) { return resp.json(); })
+          .then( function(json) {
+            json.forEach( function(event) {
+
+               var infowindow = new google.maps.InfoWindow({
+                content: contentData(event)
+              });
+              var marker = new google.maps.Marker({
+                position: {lat: event.lat, lng: event.lng},
+                map: map
+              })
+              marker.addListener('click', function() {
+              infowindow.open(map, marker);
+              });
+            })
+          });
+        }
+
     </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>

@@ -1,4 +1,3 @@
-
 function initMap() {
         var toronto = {lat: 43.6532, lng: -79.3832};
         var map = new google.maps.Map(document.getElementById('event-map'), {

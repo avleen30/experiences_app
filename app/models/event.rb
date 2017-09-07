@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
 
-    belongs_to :user
+    #belongs_to :creator_id
     belongs_to :category
 
     has_many :reviews
@@ -13,5 +13,5 @@ class Event < ApplicationRecord
     validates :end_date, presence: true
     validates :longitude, presence: true
     validates :latitude, presence: true
- 
+
 end

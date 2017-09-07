@@ -42,6 +42,21 @@ gem 'materialize-sass'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 
+#generates fake data
+gem 'faker'
+
+#carrierwave provides a simple and extremely flexible way to upload files from Ruby applications
+gem 'carrierwave'
+
+#RMagick is an interface between Ruby and ImageMagick.
+gem 'rmagick'
+
+gem 'populator'
+gem 'auto_html', '~>1.6.4'
+gem 'sanitize'
+
+gem 'active_model_serializers'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

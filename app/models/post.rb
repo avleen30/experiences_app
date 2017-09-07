@@ -2,6 +2,8 @@ class Post < ApplicationRecord
 
     belongs_to :user
 
+    mount_uploader :attachment, AvatarUploader
+
     validates :content, presence: true
     validates :user, presence: true
     validates :event, presence: true

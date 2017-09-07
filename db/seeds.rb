@@ -164,8 +164,14 @@ event10 = cat10.events.create!({
   creator_id: rand(1..50)
 })
 
+##events_users
 
-
+# Events_user.populate 50 do |person|
+#   status_array = ["Going", "Interested"]
+#   person.status = status_array.shuffle.sample
+#   rating_array = [1,2,3,4,5]
+#   person.rating = rating_array.shuffle.sample
+# end
 
 
 # user1 = User.create!({
@@ -288,183 +294,4 @@ event10 = cat10.events.create!({
 #   description: 'this made my day!'
 # })
 
-# Review.create!({
-#   user: User.tenth,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
 
-# Review.create!({
-#   user: User.eleventh,
-#   product: Product.fourth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.last,
-#   product: Product.third,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.eigth,
-#   product: Product.second,
-#   rating: 2,
-#   description: 'Keep your peace on this!'
-# })
-
-# puts "DONE!"
-# person
-
-# user1 = User.create!({
-#   first_name: 'Ruby',
-#   last_name: 'Gem',
-#   email: 'ruby.gem@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'female',
-#   avatar: open_asset('apparel1.jpg')
-#   })
-
-# user2 = User.create!({
-#   first_name: 'Avi',
-#   last_name: 'Sings',
-#   email: 'Avi@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'female',
-#   avatar:
-#   })
-
-# user3 = User.create!({
-#   first_name: 'Bob',
-#   last_name: 'Marley',
-#   email: 'iamcool@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'male'
-#   })
-
-# user4 = User.create!({
-#   first_name: 'Mahatma',
-#   last_name: 'Gandhi',
-#   email: 'peace@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'male'
-#   })
-
-# user5 = User.create!({
-#   first_name: 'Mary',
-#   last_name: 'Poppins',
-#   email: 'Supercalafajalistickexpialadojus@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'female'
-#   })
-
-
-# ## POSTS
-
-# user1.posts.create!({
-#   line_items: [line_item1],
-#   total_cents: 3000,
-#   stripe_charge_id: 12345,
-#   email: 'ruby.gem@gmail.com',
-#   user_id: 1
-#   })
-
-# #REVIEWS
-
-# puts "Re-creating Reviews ..."
-
-# Review.destroy_all
-
-# Review.create!({
-#   user: User.first,
-#   product: Product.second,
-#   rating: 5,
-#   description: 'Curious....very Curious!!'
-# })
-
-# Review.create!({
-#   user: User.second,
-#   product: Product.first,
-#   rating: 1,
-#   description: 'Dear god why?'
-# })
-
-# Review.create!({
-#   user: User.third,
-#   product: Product.first,
-#   rating: 3,
-#   description: 'Dude yess'
-# })
-
-# Review.create!({
-#   user: User.fifth,
-#   product: Product.last,
-#   rating: 5,
-#   description: 'LOVE this?'
-# })
-
-# Review.create!({
-#   user: User.fourth,
-#   product: Product.fourth,
-#   rating: 2,
-#   description: 'I am not sure why I bought this'
-# })
-
-# Review.create!({
-#   user: User.sixth,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.seventh,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.ninth,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.tenth,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.eleventh,
-#   product: Product.fourth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.last,
-#   product: Product.third,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.eigth,
-#   product: Product.second,
-#   rating: 2,
-#   description: 'Keep your peace on this!'
-# })
-
-# puts "DONE!"

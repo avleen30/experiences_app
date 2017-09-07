@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
 
-    #belongs_to :creator_id
+    belongs_to :user, foreign_key: :creator_id
     belongs_to :category
 
     has_many :reviews

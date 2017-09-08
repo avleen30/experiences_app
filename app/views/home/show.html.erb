@@ -1,3 +1,26 @@
+  <!-- Setup the Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=370621926691035";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+ window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '370621926691035',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+</script>
+
+
   <div class="parallax-container">
     <div class="parallax"><img src="assets/background_image.jpg"></div>
 
@@ -9,15 +32,16 @@
           <h5 class="header col s12 light">Ready for your next experience?</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Join with Facebook</a>
-          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-          </fb:login-button>
+
+          <!-- Login with Facebook button -->
+          <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
         <br><br>
 
       </div>
     </div>
   </div>
+
 
  <!-- Instagram -->
 
@@ -56,4 +80,14 @@
 
     <script type="text/javascript">
       $('.parallax').parallax();
+      $.ajaxSetup({ cache: true });
+      $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+        FB.init({
+          appId: '{your-app-id}',
+          version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+        });
+        $('#loginbutton,#feedbutton').removeAttr('disabled');
+        FB.getLoginStatus(updateStatusCallback);
+      });
   </script>
+

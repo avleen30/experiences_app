@@ -27,8 +27,8 @@ root to: 'home#show'
 
     #adding routes for Facebook user login
 
-  get 'auth/facebook/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
+    # get 'auth/facebook/callback', to: 'sessions#create'
+    # get 'auth/failure', to: redirect('/')
 
 #adding routes for user registration
 

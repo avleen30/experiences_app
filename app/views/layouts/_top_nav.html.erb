@@ -1,34 +1,40 @@
-<% if current_user %>
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
   <li><%= link_to 'View Experiences', events_users_path(current_user) %></li>
+  <% if current_user %>
   <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
   <li class="divider"></li>
-  <li><%= link_to "Logout", '/logout' %></li>
+  <li><%= link_to "Logout", logout_path %></li>
+  <% end %>
 </ul>
-<nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Experiences</a>
-    <ul class="right hide-on-med-and-down">
 
-    <li><a class="waves-effect waves-light btn">Create Event<i class="material-icons right">+</i></a></li>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Experiences</a>
+      <ul class="right hide-on-med-and-down">
 
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.first_name %><i class="material-icons right">arrow_drop_down</i></a></li>
+      <% if current_user %>
+
+      <li><a href="/events/new" class="waves-effect waves-light btn">Create Event<i class="material-icons right">add</i></a></li>
+
+
+    <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="/" data-activates="dropdown1"><%= current_user.first_name %><i class="material-icons right">arrow_drop_down</i></a></li>
        </li>
-            <% else %>
-            <li>
-            <%= link_to '/login' do %>
-             <%= fa_icon "user" %> Login
-            <% end %>
-            </li>
-            <li><%= link_to 'Signup', '/signup' %>
-          </li>
-          <% end %>
-    </ul>
-  </div>
 
-</nav>
+      <% else %>
+            <li><%= link_to 'Login' %>
+            <%= fa_icon "user" %> Login </li>
+            <li><%= link_to 'Signup', '/signup' %></li>
+      <% end %>
 
+      </ul>
+    </div>
+  </nav>
+</div>
 
+<script type="text/javascript">
+    $('.modal').modal();
+</script>
 

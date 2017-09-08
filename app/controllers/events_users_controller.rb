@@ -4,7 +4,7 @@ class EventsUsersController < ApplicationController
   # GET /events_users
   # GET /events_users.json
   def index
-    @events_users = EventsUser.all
+    @events_users = EventsUser.where(user_id: params[:id])
   end
 
   # GET /events_users/1

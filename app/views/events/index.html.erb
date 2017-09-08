@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<div style="height: 500px" id='event-map'></div>
+<h1>Events</h1>
 
+<%= form_tag("/event", method: "get") do %>
+  <%= time_field_tag :event_time_filter, :started_at %>
+  <%= date_field_tag :event_time_filter, :started_at %>
+  <%= submit_tag "Filter" %>
+<% end %>
 
+<div style="height: 400px" id='event-map'>
 
 <br>
 
@@ -26,8 +32,6 @@ function initMap() {
           center: Toronto
         });
 
-
-
         fetch('/events.json')
           .then( function(resp) { return resp.json(); })
           .then( function(json) {
@@ -46,8 +50,8 @@ function initMap() {
             })
           });
         }
-
-    </script>
+</script>
+ </div>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>
 

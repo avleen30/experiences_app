@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
 
-root to: 'home#show'
+  root to: 'home#show'
 
-  get 'home/show'
-
-  # authenticated :user do
-  #   root to: 'home#index', as: 'home'
-  # end
-  # unauthenticated :user do
-  #   root 'home#front'
-  # end
 
   resources :posts
   resources :categories
@@ -25,10 +17,11 @@ root to: 'home#show'
     post '/login' => 'sessions#create'
     get '/logout' => 'sessions#destroy'
 
+
     #adding routes for Facebook user login
 
-    # get 'auth/facebook/callback', to: 'sessions#create'
-    # get 'auth/failure', to: redirect('/')
+    get 'auth/facebook/callback', to: 'sessions#create'
+    get 'auth/failure', to: redirect('/')
 
 #adding routes for user registration
 

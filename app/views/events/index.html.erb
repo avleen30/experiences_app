@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <div style="height: 500px" id='event-map'></div>
-
-<h1>Events</h1>
-
 
 <%= form_tag("/events", method: "get") do %>
   <%= text_field_tag :event_time_filter, '', class: 'timepicker' %>

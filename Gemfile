@@ -58,7 +58,7 @@ gem 'active_model_serializers'
 
 gem 'figaro'
 gem 'omniauth-facebook'
-gem 'omniauth-facebook'
+
 
 
 

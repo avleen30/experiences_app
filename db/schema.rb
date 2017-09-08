@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20170908202050) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
-
     t.integer  "user_id"
+    t.string   "time"
     t.index ["category_id"], name: "index_events_on_category_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end

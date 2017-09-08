@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908011913) do
+ActiveRecord::Schema.define(version: 20170908202050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170908011913) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
+    t.string   "time"
     t.index ["category_id"], name: "index_events_on_category_id", using: :btree
   end
 
@@ -68,6 +69,8 @@ ActiveRecord::Schema.define(version: 20170908011913) do
     t.date     "dob"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def authorize 
+  def current_event
+    @current_event ||= Event.find(session[:event_id]) if session[:event_id]
+  end
+  helper_method :current_event
+
+  def authorize
     redirect_to '/login' unless current_user
   end
 

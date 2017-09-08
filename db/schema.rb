@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20170908202050) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
+    t.integer  "user_id"
     t.string   "time"
     t.index ["category_id"], name: "index_events_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "events_users", force: :cascade do |t|
@@ -46,6 +48,15 @@ ActiveRecord::Schema.define(version: 20170908202050) do
     t.integer  "event_id"
     t.index ["event_id"], name: "index_events_users_on_event_id", using: :btree
     t.index ["user_id"], name: "index_events_users_on_user_id", using: :btree
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -75,6 +86,7 @@ ActiveRecord::Schema.define(version: 20170908202050) do
   end
 
   add_foreign_key "events", "categories"
+  add_foreign_key "events", "users"
   add_foreign_key "events_users", "events"
   add_foreign_key "events_users", "users"
   add_foreign_key "posts", "events"

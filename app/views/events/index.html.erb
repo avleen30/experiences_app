@@ -1,9 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<<<<<<< HEAD
 
 <div style="height: 500px" id='event-map'></div>
+=======
+<h1>Events</h1>
+>>>>>>> dc3060b2ce1caccbf502bc0b348b411b51d3075a
 
+<%= form_tag("/events", method: "get") do %>
+  <%= text_field_tag :event_time_filter, '', class: 'timepicker' %>
+  <%= text_field_tag :event_date_filter, '', class: 'datepicker' %>
+  <%= select_tag :event_type_filter, options_from_collection_for_select(@categories, :id, :name) %>
+  <%= submit_tag "Filter" %>
+<% end %>
 
+<<<<<<< HEAD
 <table>
   <thead>
     <tr>
@@ -38,11 +49,35 @@
   </tbody>
 </table>
 
+=======
+<div style="height: 400px" id='event-map'>
+>>>>>>> dc3060b2ce1caccbf502bc0b348b411b51d3075a
 
 <br>
 
 <script>
       window.events = <%== @events.to_json %>;
+      $('select').material_select();
+       $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+        $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+
 function contentData (event){
   console.log('COVER IMAGE', event.cover_img)
 return '<div id="content">'+
@@ -60,8 +95,6 @@ function initMap() {
           zoom: 12,
           center: Toronto
         });
-
-
 
         fetch('/events.json')
           .then( function(resp) { return resp.json(); })
@@ -81,8 +114,8 @@ function initMap() {
             })
           });
         }
-
-    </script>
+</script>
+ </div>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>
 

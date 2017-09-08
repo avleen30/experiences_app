@@ -4,7 +4,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = params[:event_time_filter] || params[:event_date_filter] || params[:event_type_filter] ? Event.filtered(params[:event_time_filter], params[:event_date_filter], params[:event_type_filter]) : Event.all
+
+    @categories = Category.all
+    # filtering_params(params).each do |key, value|
+    #   @events = @events.public_send(key, value) if value.present?
+    # end
+  end
+
   end
 
   # GET /events/1
@@ -71,5 +78,8 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:name, :description, :cover_img, :start_date, :end_date, :creator_id, :lng, :lat)
+    end
+    def filtering_params(params)
+      params.slice(:event_time_filter, :event_date_filter, :event_type_filter)
     end
 end

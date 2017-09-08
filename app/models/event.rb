@@ -14,4 +14,11 @@ class Event < ApplicationRecord
     validates :lng, presence: true
     validates :lat, presence: true
 
+    scope :filtered, (time, date, type) -> {
+        where(events.start_time),
+        where(events.start_date),
+        where(events.type),
+
+    }
+
 end

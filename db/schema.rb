@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907174729) do
+ActiveRecord::Schema.define(version: 20170908011913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20170907174729) do
     t.string   "name"
     t.string   "description"
     t.string   "cover_img"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.integer  "creator_id"
     t.float    "lng"
     t.float    "lat"

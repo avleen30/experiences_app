@@ -40,10 +40,12 @@
   <%= @event.lat %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<% if current_user.id == @event.creator_id %>
+<%= link_to 'Edit Your Event', edit_event_path(@event) %> |
+<% end %>
+<%= link_to 'Back To Map', events_path %>
 
-<div id='event-map' class="event_detail_map"></div>
+<div id='event-detail-map' class="event_detail_map"></div>
 
 <script>
   window.event = <%== @event.to_json %>;
@@ -51,3 +53,41 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=
 <%= Rails.application.secrets.google_key %>&callback=initMap_detail">
 </script>
+
+<%= @event.posts.count %>
+
+<hr>
+<% if current_user %>
+  <div id="review-form" class="row">
+    <div class="col-sm-12">
+
+      <h3>Event Discussion:</h3>
+      <%= form_for [@event] do |form| %>
+
+        <div class="form-group">
+          <%= form.label :description %>
+            <%= form.text_area :description, rows: '4', class: 'form-control' %>
+        </div>
+        <%= form.submit 'Submit', class: 'btn btn-primary' %>
+
+          <% end %>
+    </div>
+  </div>
+  <%end %>
+
+    <dl class="dl-horizontal">
+      <dd><strong><h4>Posts</h4></strong></dd>
+      <dd>
+        <hr>
+        <% @event.posts.each do |post| %>
+          <p><strong>User #<%= post.user_id %>'s post:</strong></p>
+          <p>
+            <%= post.content %>
+          </p>
+        
+          <hr>
+          <% end %>
+      </dd>
+    </dl>
+    </div>
+    </div>

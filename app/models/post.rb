@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 
     belongs_to :user
+    belongs_to :event
 
     mount_uploader :attachment, AvatarUploader
 

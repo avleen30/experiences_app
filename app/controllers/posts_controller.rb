@@ -25,10 +25,14 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.event_id = params[:event_id]
+    @post.user_id = current_user
+    @post.save
 
+    @event = Event.find params[:event_id]
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to event_path(@event), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -54,9 +58,11 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @post = Post.find params[:id]
     @post.destroy
+    @event = Event.find params[:event_id]
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to event_path(@event), notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

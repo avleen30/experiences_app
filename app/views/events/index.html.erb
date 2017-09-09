@@ -79,8 +79,20 @@ function initMap() {
           });
         }
 </script>
- </div>
+</div>
 
+<div class="col s3">
+  <% @events.each do |event| %>
+    <div class="col s3">
+    <div>
+        <%= event.name %>
+    </div>
+    <div>
+        <%= event.description %>
+        </div>
+    </div>
+  <% end %>
+</div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>

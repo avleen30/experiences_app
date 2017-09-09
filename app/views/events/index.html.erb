@@ -42,13 +42,15 @@
 
 function contentData (event){
   console.log('COVER IMAGE', event.cover_img)
-return '<div id="content" href ="' + event/:id + '" >' +
+return '<div id="content">' +
+          '<a href="/events/' + event.id + '" >' +
           '<div id="siteNotice">'+
           '</div>'+
           '<img src="' + event.cover_img + '" />' +
             '<h3 id="firstHeading" class="firstHeading">' + event.name + '</h3>'+
 
           '<div id="bodyContent">'+ event.description +'</div>'+
+        '</a>' +
         '</div>';
 }
 function initMap() {

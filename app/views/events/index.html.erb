@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
+ <div class="col s3">
 
 <%= form_tag("/events", method: "get") do %>
-  <%= text_field_tag :event_time_filter, '', class: 'timepicker' %>
-  <%= text_field_tag :event_date_filter, '', class: 'datepicker' %>
-  <%= select_tag :event_type_filter, options_from_collection_for_select(@categories, :id, :name) %>
+  <%= text_field_tag :event_time_filter, '', class: 'timepicker', :placeholder => "Time"%>
+  <%= text_field_tag :event_date_filter, '', class: 'datepicker', :placeholder => "Date"%>
+  <%= select_tag :event_type_filter, options_from_collection_for_select(@categories, :id, :name), include_blank: 'Select Experience'%>
   <%= submit_tag "Filter" %>
 <% end %>
+</div>
 
-<div style="height: 400px" id='event-map'>
+
+<div class="col s9" style="height: 400px" id='event-map'>
+
 
 <br>
 
@@ -38,7 +42,7 @@
 
 function contentData (event){
   console.log('COVER IMAGE', event.cover_img)
-return '<div id="content">'+
+return '<div id="content" href ="' + event/:id + '" >' +
           '<div id="siteNotice">'+
           '</div>'+
           '<img src="' + event.cover_img + '" />' +
@@ -54,7 +58,7 @@ function initMap() {
           center: Toronto
         });
 
-        fetch('/events.json')
+        fetch('/events.json?event_type_filter=<%= @event_type_filter %>&event_date_filter=<%= @event_date_filter %>&event_time_filter=<%= @event_time_filter %>')
           .then( function(resp) { return resp.json(); })
           .then( function(json) {
             json.forEach( function(event) {
@@ -74,6 +78,8 @@ function initMap() {
         }
 </script>
  </div>
+
+
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>
 

@@ -1,3 +1,5 @@
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
 class Event < ApplicationRecord
 
     belongs_to :user, foreign_key: :creator_id
@@ -14,8 +16,20 @@ class Event < ApplicationRecord
     validates :lng, presence: true
     validates :lat, presence: true
 
-    scope :filtered, -> (time, date, type) {
-        where(start_time: time, type: type, start_date: date)
-    }
+
+    # scope :filtered, -> (time, date, type) {
+    #     where(time: time, start_date: date, type: )
+    # }
+
+    def self.filtered (time, date, type)
+        r = self.where(time: time)
+            .or(self.where(start_date: date))
+            .or(self.where(category_id: type))
+        # logger.debug r
+    end
+
+    # named_scope :filtered lambda { |time, date, type| {
+    #     :conditions => { :time => time }
+    # } }
 
 end

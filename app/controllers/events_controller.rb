@@ -4,9 +4,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = params[:event_time_filter] || params[:event_date_filter] || params[:event_type_filter] ? Event.filtered(params[:event_time_filter], params[:event_date_filter], params[:event_type_filter]) : Event.all
+    @event_type_filter = params[:event_type_filter]
+
+    is_filtered = !params[:event_time_filter].blank? || !params[:event_date_filter].blank? || !params[:event_type_filter].blank?
+
+
+    @events = is_filtered ? Event.filtered(params[:event_time_filter], params[:event_date_filter], params[:event_type_filter]) : Event.all
 
     @categories = Category.all
+
   end
 
   # GET /events/1

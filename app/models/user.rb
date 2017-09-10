@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_secure_password
 
   has_many :events
@@ -6,6 +7,9 @@ class User < ApplicationRecord
   has_many :posts
 
   mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
+
+
 
   validates_uniqueness_of :email, case_sensitive: false, presence: true
   validates :password, presence: true
@@ -13,6 +17,15 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates_processing_of :image
+  validate :image_size_validation
+
+
+
+  def user_params
+    params.require(:user).permit(:name, :about, :avatar, :cover,
+                                 :sex, :dob, :location, :phone_number)
+  end
 
   def self.authenticate_with_credentials(email, password)
     new_email = email.downcase
@@ -36,6 +49,11 @@ class User < ApplicationRecord
     user.save!
     user
   end
-end
+  end
+
+  private
+  def image_size_validation
+    errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
+  end
 
 end

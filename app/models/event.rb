@@ -5,6 +5,9 @@ class Event < ApplicationRecord
     belongs_to :user, foreign_key: :creator_id
     belongs_to :category
 
+    mount_uploader :attachment, AvatarUploader
+
+
     has_many :reviews
     has_many :posts
 
@@ -15,6 +18,9 @@ class Event < ApplicationRecord
     validates :end_date, presence: true
     validates :lng, presence: true
     validates :lat, presence: true
+
+
+
 
 
     # scope :filtered, -> (time, date, type) {

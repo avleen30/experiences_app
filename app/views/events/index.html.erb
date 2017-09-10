@@ -1,8 +1,9 @@
+<div class="row">
+
 <p id="notice"><%= notice %></p>
 
 
-<h1>Events</h1>
- <div class="col s3">
+<div class="col s3" style="padding: 1em;">
 
 <%= form_tag("/events", method: "get") do %>
   <%= text_field_tag :event_time_filter, '', class: 'timepicker', :placeholder => "Time"%>
@@ -13,7 +14,7 @@
 </div>
 
 
-<div class="col s9" style="height: 400px" id='event-map'>
+<div class="col s9" style="height: 400px" id='event-map' style="padding: 4em;">
 
 <br>
 
@@ -81,21 +82,25 @@ function initMap() {
 </script>
 </div>
 
-<div class="col s3">
+<div class="row">
   <% @events.each do |event| %>
     <div class="col s3">
+    <ul>
     <div>
         <%= event.name %>
     </div>
+      <div>
+        <%= image_tag event.cover_img %>
+    </div>
     <div>
         <%= event.description %>
-        </div>
+    </div>
     </div>
   <% end %>
+  </ul>
+</div>
+</div>
 </div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>
-
-
-<%= link_to 'New Event', new_event_path %>

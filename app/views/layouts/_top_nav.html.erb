@@ -2,6 +2,7 @@
 <ul id="dropdown1" class="dropdown-content">
   <li><%= link_to 'View Experiences', events_users_path(current_user) %></li>
   <% if current_user %>
+  <li><%= link_to 'View Profile', user_path(current_user)%></li>
   <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
   <li class="divider"></li>
   <li><%= link_to "Logout", logout_path %></li>
@@ -16,10 +17,11 @@
 
       <% if current_user %>
 
-      <li><a href="/events/new" class="waves-effect waves-light btn">Create Event<i class="material-icons right">add</i></a></li>
+      <li><a href="/events/new" class="modal-trigger waves-effect waves-light btn">Create Event<i class="material-icons right">add</i></a></li>
 
+      <li><%= image_tag @current_user.avatar.url %></li>
 
-    <!-- Dropdown Trigger -->
+     <!-- Dropdown Trigger -->
       <li><a class="dropdown-button" href="/" data-activates="dropdown1"><%= current_user.first_name %><i class="material-icons right">arrow_drop_down</i></a></li>
        </li>
 
@@ -33,7 +35,4 @@
   </nav>
 </div>
 
-<script type="text/javascript">
-    $('.modal').modal();
-</script>
 

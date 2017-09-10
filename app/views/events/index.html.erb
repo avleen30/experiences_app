@@ -82,25 +82,29 @@ function initMap() {
 </script>
 </div>
 
-<div class="row">
-  <% @events.each do |event| %>
-    <div class="col s3">
-    <ul>
-    <div>
-        <%= event.name %>
+<div class="container-fluid">
+<% @events.each do |event| %>
+<div class="col">
+  <div class="row center-cols center-align s3 m4 cardSlider">
+     <div class="col m4 cards">
+        <div class="card-image">
+          <p><%= image_tag event.cover_img %></p>
+        </div>
+        <span class="card-title">
+          <p><%= event.name %></p>
+        </span>
+        <div class="card-content">
+          <p><%= event.description %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to 'View', events_path %>
+        </div>
     </div>
-      <div>
-        <%= image_tag event.cover_img %>
-    </div>
-    <div>
-        <%= event.description %>
-    </div>
-    </div>
-  <% end %>
-  </ul>
+  </div>
 </div>
+<% end %>
 </div>
-</div>
+
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>

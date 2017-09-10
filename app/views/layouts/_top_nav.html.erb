@@ -1,5 +1,6 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to 'Search Experiences', events_path(current_user) %></li>
   <li><%= link_to 'View Experiences', events_users_path(current_user) %></li>
   <% if current_user %>
   <li><%= link_to 'View Profile', user_path(current_user)%></li>
@@ -12,22 +13,27 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
+    <% if current_user %>
+      <a href="/events" class="brand-logo">Experiences</a>
+      <% else %>
       <a href="/" class="brand-logo">Experiences</a>
+      <% end %>
+
       <ul class="right hide-on-med-and-down">
 
       <% if current_user %>
 
       <li><a href="/events/new" class="modal-trigger waves-effect waves-light btn">Create Event<i class="material-icons right">add</i></a></li>
 
-      <li><%= image_tag @current_user.avatar.url %></li>
+      <li><% image_tag current_user.avatar.url %></li>
 
      <!-- Dropdown Trigger -->
       <li><a class="dropdown-button" href="/" data-activates="dropdown1"><%= current_user.first_name %><i class="material-icons right">arrow_drop_down</i></a></li>
        </li>
 
       <% else %>
-            <li><%= link_to 'Login', '/login' %></li>
-            <li><%= link_to 'Signup', '/signup' %></li>
+        <li><%= link_to 'Login', '/login' %></li>
+        <li><%= link_to 'Signup', '/signup' %></li>
       <% end %>
 
       </ul>

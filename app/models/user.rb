@@ -20,6 +20,9 @@ class User < ApplicationRecord
   validates_processing_of :image
   validate :image_size_validation
 
+   def full_name
+    "#{first_name} #{last_name}"
+  end
 
 
   def user_params

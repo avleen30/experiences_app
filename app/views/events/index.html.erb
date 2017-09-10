@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-
 <h1>Events</h1>
- <div class="col s3">
+
 
 <%= form_tag("/events", method: "get") do %>
   <%= text_field_tag :event_time_filter, '', class: 'timepicker', :placeholder => "Time"%>
@@ -10,10 +9,11 @@
   <%= select_tag :event_type_filter, options_from_collection_for_select(@categories, :id, :name), include_blank: 'Select Experience'%>
   <%= submit_tag "Filter" %>
 <% end %>
-</div>
+
 
 
 <div class="col s9" style="height: 400px" id='event-map'>
+
 
 <br>
 
@@ -81,18 +81,26 @@ function initMap() {
 </script>
 </div>
 
-<div class="col s3">
+
   <% @events.each do |event| %>
-    <div class="col s3">
-    <div>
-        <%= event.name %>
-    </div>
-    <div>
-        <%= event.description %>
+
+    <div class="row" style="float: none; display: inline-block;">
+    <a href="/events/event.id">
+      <div class="s12 m6">
+        <div class="card">
+          <div class="card-image">
+            <img src="<%=event.cover_img%>">
+            <span class="card-title"><%=event.name%></span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p><%=event.description%></p>
+          </div>
         </div>
+      </div>
+      </a>
     </div>
   <% end %>
-</div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>

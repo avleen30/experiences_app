@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = Post.find params[:event_id]
   end
 
   # GET /posts/new
@@ -24,12 +25,12 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @event = Event.find params[:event_id]
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @post.event_id = params[:event_id]
-    @post.user_id = current_user
     @post.save
 
-    @event = Event.find params[:event_id]
     respond_to do |format|
       if @post.save
         format.html { redirect_to event_path(@event), notice: 'Post was successfully created.' }

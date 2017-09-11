@@ -90,3 +90,13 @@
                 </dd>
               </dl>
             </div>
+
+            <div>
+              <p> THIS IS THE USERS ATTENDING SECTION</p>
+  
+
+              <% @event_users.each do |thing| %>
+              <%= thing.id %>
+              <% end %>
+
+            </div>

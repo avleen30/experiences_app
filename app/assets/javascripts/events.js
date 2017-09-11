@@ -4,7 +4,7 @@ function initMap() {
     lng: -79.3832
   };
   var map = new google.maps.Map(document.getElementById('event-map'), {
-    zoom: 8,
+    zoom: 11,
     center: toronto
   });
 

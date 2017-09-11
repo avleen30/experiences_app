@@ -51,6 +51,7 @@ gem 'carrierwave'
 
 #RMagick is an interface between Ruby and ImageMagick.
 gem 'rmagick'
+gem "mini_magick"
 
 gem 'auto_html', '~>1.6.4'
 gem 'sanitize'
@@ -58,7 +59,8 @@ gem 'sanitize'
 gem 'active_model_serializers'
 
 gem 'figaro'
-gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
 
 
 group :development, :test do

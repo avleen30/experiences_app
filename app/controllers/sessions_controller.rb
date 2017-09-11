@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     # end
 
     if request.env['omniauth.auth']
-    user = User.create_with_omniauth(request.env['omniauth.auth'])
+    user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     redirect_to '/events'
     else

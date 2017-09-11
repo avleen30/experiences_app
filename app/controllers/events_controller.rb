@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find params[:id]
     @post = @event.posts.build
+    @event_users = EventsUser.where(event_id: params[:id])
   end
 
   # GET /events/new

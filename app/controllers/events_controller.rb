@@ -13,9 +13,6 @@ class EventsController < ApplicationController
 
     @categories = Category.all
 
-
-    puts current_user.avatar.inspect
-
   end
 
   # GET /events/1

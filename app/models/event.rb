@@ -6,7 +6,6 @@ class Event < ApplicationRecord
     belongs_to :category
 
     mount_uploader :attachment, AvatarUploader
-    mount_uploader :image, ImageUploader
 
 
     has_many :reviews

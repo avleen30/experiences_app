@@ -1,3 +1,9 @@
+<li><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Signup</a></li>
+
+
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -41,12 +47,12 @@
     <%= f.text_field :gender %>
   </div>
 
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.text_field :avatar %>
+  <div class="field" style="height: 1em; width: 1em;">
+    <%= f.label :avatar %><br>
+    <%= f.file_field :avatar %>
   </div>
 
-  <div class="field">
+  <div class="datepicker field">
     <%= f.label :dob %>
     <%= f.text_field :dob %>
   </div>
@@ -55,3 +61,17 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>
+</div>
+
+<script type="text/javascript">
+      $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+</script>

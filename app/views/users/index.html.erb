@@ -9,8 +9,8 @@
       <th>First name</th>
       <th>Last name</th>
       <th>Gender</th>
-      <th>Avatar</th>
-      <th>Dob</th>
+     <!--  <th>Avatar</th>
+     <th>Dob</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,8 +22,8 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.gender %></td>
-        <td><%= image_tag user.avatar %></td>
-        <td><%= user.dob %></td>
+        <!-- <td><%= image_tag user.avatar %></td>
+        <td><%= user.dob %></td> -->
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

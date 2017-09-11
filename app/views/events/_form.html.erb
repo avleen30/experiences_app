@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(event) do |f| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -22,24 +23,19 @@
   </div>
 
   <div class="field">
-    <%= f.label :cover_img %>
-    <%= f.text_field :cover_img %>
+    <%= f.label :cover_img %><br>
+    <%= f.file_field :cover_img %>
   </div>
 
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.datetime_select :start_date %>
+  <div class="datepicker field">
+   <%= text_field_tag :event_date_filter, '', class: 'datepicker', :placeholder => "Date"%>
   </div>
 
-  <div class="field">
+  <div class="timepicker field">
     <%= f.label :end_date %>
-    <%= f.datetime_select :end_date %>
+    <%= f.text_field :end_date %>
   </div>
 
-  <div class="field">
-    <%= f.label :creator_id %>
-    <%= f.number_field :creator_id %>
-  </div>
 
   <div class="field">
     <%= f.label :lng, 'Longitude' %>
@@ -55,3 +51,28 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+
+<script>
+      window.events = <%== @events.to_json %>;
+      $('select').material_select();
+       $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+        $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+  </script>

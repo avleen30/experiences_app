@@ -4,8 +4,10 @@
 
 <div class="col s3" style="padding: 1em;">
 
-<h3>Events</h3>
 
+<div class="titles">
+<h4>Experiences</h4>
+</div>
 
 
 <%= form_tag("/events", method: "get", class: "form_class") do %>
@@ -44,6 +46,7 @@
     close: 'Ok',
     closeOnSelect: false // Close upon selecting a date,
   });
+
 
 function contentData (event){
   console.log('COVER IMAGE', event.cover_img)
@@ -87,29 +90,46 @@ function initMap() {
 </div>
 
 
-  <% @events.each do |event| %>
 
-    <div class="row" style="float: none; display: inline-block;">
-    <a href="/events/event.id">
-      <div class="col s4 m3 offset-m2">
-        <div class="card">
-          <div class="card-image">
-            <img src="<%=event.cover_img%>">
-            <span class="card-title"><%=event.name%></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
-          </div>
-          <div class="card-content">
-            <p><%=event.description%></p>
-          </div>
+<div class="titles">
+<h4><i class="material-icons"> explore</i>Explore Experiences</h4>
+</div>
+<div class="carousel">
+
+<% @events.each do |event| %>
+
+    <div class="carousel-item">
+      <div class="card">
+      <a href="/events/event.id">
+        <div class="card-image">
+          <img src="<%=event.cover_img%>">
+          <span class="card-title"><%=event.name%></span>
+
+        <div class="fixed-action-btn horizontal" style="position:absolute; float:right; bottom:5px; right:-5px">
+          <a class="btn-floating halfway-fab waves-effect waves-light #26a69a">
+          <i class="large material-icons">info_outline</i>
+           </a>
+
+          <ul>
+            <li><a class="btn-floating #ee6e73"><i class="material-icons">event_available</i></a></li>
+            <li><a class="btn-floating #ee6e73 darken-1"><i class="material-icons">star</i></a></li>
+            <li><a class="btn-floating #ee6e73" href="/events/event.id"><i class="material-icons">explore</i></a></li>
+
+         </ul>
+  </div>
         </div>
+        <div class="card-content">
+          <p><%=event.description%></p>
+        </div>
+        </a>
       </div>
-      </a>
     </div>
-
-  <% end %>
+<% end %>
+</div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>
+<script>$(document).ready(function(){$('.carousel').carousel();});</script>
 
 
 

@@ -17,6 +17,14 @@
   <%= image_tag @event.cover_img %>
 </p>
 
+<p>testing giphy images</p>
+<script>
+  var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=6f0aa220eb134e62901a4141d62bf573&limit=5");
+    xhr.done(function (data) {
+       console.log("success got data", data); 
+    return data})
+</script>
+
 <p>
   <strong>Start date:</strong>
   <%= @event.start_date %>
@@ -56,24 +64,24 @@
 <%= Rails.application.secrets.google_key %>&callback=initMap_detail">
         </script>
 
-          <hr>
-          <% if current_user %>
-            <div id="review-form" class="row">
-              <div class="col-sm-12">
+        <hr>
+        <% if current_user %>
+          <div id="review-form" class="row">
+            <div class="col-sm-12">
 
-                <h3>Event Discussion:</h3>
-                <%= form_for [@event, @post] do |form| %>
+              <h3>Event Discussion:</h3>
+              <%= form_for [@event, @post] do |form| %>
 
-                  <div class="form-group">
-                    <%= form.label :content %>
-                      <%= form.text_area :content, rows: '4', class: 'form-control' %>
-                  </div>
-                  <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                <div class="form-group">
+                  <%= form.label :content %>
+                    <%= form.text_area :content, rows: '4', class: 'form-control' %>
+                </div>
+                <%= form.submit 'Submit', class: 'btn btn-primary' %>
 
-                    <% end %>
-              </div>
+                  <% end %>
             </div>
-<% end %>
+          </div>
+          <% end %>
             <div>
               <dl class="dl-horizontal">
                 <dd><strong><h4>Posts</h4></strong></dd>
@@ -93,15 +101,16 @@
 
             <div>
               <p> THIS IS THE USERS ATTENDING SECTION</p>
-  
+
               <% @event_users.each do |eu| %>
-              <dd>
-              <dl >User # <%= eu.id %> 
-                <%= eu.user.first_name %> 
-                <%= eu.user.last_name %> 
-                is <strong> <%= eu.status %> </strong>
-              </dl>
-              </dd>
-              <% end %>
+                <dd>
+                  <dl>User #
+                    <%= eu.id %>
+                      <%= eu.user.first_name %>
+                        <%= eu.user.last_name %>
+                          is <strong> <%= eu.status %> </strong>
+                  </dl>
+                </dd>
+                <% end %>
 
             </div>

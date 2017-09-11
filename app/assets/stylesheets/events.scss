@@ -7,8 +7,31 @@
     width: 300px;
     border-radius: 15px;
     border: 2px solid black;
+
 }
 .card {
  width:300px;
- margin: 10 auto;
+ align-items: center;
+ justify-content: center;
+
 }
+.form_class {
+  align: left;
+  width: 200px;
+  float: left;
+  border-radius: 5px;
+  height: 400px;
+  padding: 10px;
+  background:#ee6e73;
+  color: white;
+
+}
+.timepicker {
+  color: white;
+}
+.button_filter {
+  color:white;
+  background: #26a69a;
+  border-radius: 5px;
+}
+

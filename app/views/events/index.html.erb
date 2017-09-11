@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h3>Events</h3>
 
 
-<%= form_tag("/events", method: "get") do %>
+<%= form_tag("/events", method: "get", class: "form_class") do %>
   <%= text_field_tag :event_time_filter, '', class: 'timepicker', :placeholder => "Time"%>
-  <%= text_field_tag :event_date_filter, '', class: 'datepicker', :placeholder => "Date"%>
+  <%= text_field_tag :event_date_filter, '', class: 'datepicker', :placeholder =>  'Date'%>
   <%= select_tag :event_type_filter, options_from_collection_for_select(@categories, :id, :name), include_blank: 'Select Experience'%>
-  <%= submit_tag "Filter" %>
+  <%= submit_tag "Filter", class:"button_filter" %>
 <% end %>
 
 
@@ -91,7 +91,7 @@ function initMap() {
           <div class="card-image">
             <img src="<%=event.cover_img%>">
             <span class="card-title"><%=event.name%></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
           </div>
           <div class="card-content">
             <p><%=event.description%></p>
@@ -106,4 +106,4 @@ function initMap() {
 </script>
 
 
-<%= link_to 'New Event', new_event_path %>
+

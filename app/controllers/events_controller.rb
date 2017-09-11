@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find params[:id]
-    @posts = Post.find params[:event_id]
+    @post = @event.posts.build
   end
 
   # GET /events/new
@@ -75,6 +75,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :description, :cover_img, :start_date, :end_date, :creator_id, :lng, :lat)
+    params.require(:event).permit(:id, :name, :description, :cover_img, :start_date, :end_date, :creator_id, :lng, :lat)
   end
 end

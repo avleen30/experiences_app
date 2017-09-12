@@ -15,6 +15,8 @@ puts "Seeding Data ..."
 
 ## CATEGORIES
 
+Category.destroy_all
+
 puts "Finding or Creating Categories ..."
 
 cat1 = Category.find_or_create_by! name: 'Trip'
@@ -27,11 +29,10 @@ cat7 = Category.find_or_create_by! name: 'Meal'
 cat8 = Category.find_or_create_by! name: 'Photography'
 cat9 = Category.find_or_create_by! name: 'Art'
 cat10 = Category.find_or_create_by! name: 'Cultural'
-cat11 = Category.find_or_create_by! name: 'Sports'
-cat12 = Category.find_or_create_by! name: 'Cook'
-cat13 = Category.find_or_create_by! name: 'Games'
-cat14 = Category.find_or_create_by! name: 'Shopping'
-cat15 = Category.find_or_create_by! name: 'Others'
+cat11 = Category.find_or_create_by! name: 'Cooking'
+cat12 = Category.find_or_create_by! name: 'Games'
+cat13 = Category.find_or_create_by! name: 'Shopping'
+cat14 = Category.find_or_create_by! name: 'Others'
 
 ## USERS
 EventsUser.destroy_all
@@ -166,6 +167,50 @@ event10 = cat10.events.create!({
   creator_id: User.all.shuffle.sample.id
 })
 
+event10 = cat11.events.create!({
+  name: "Cooking",
+  description: "Checkout the railway museum?",
+  cover_img: Faker::Avatar.image,
+  start_date: DateTime.new(2017,9,1),
+  end_date: DateTime.new(2017,9,10),
+  lat: 43.640694,
+  lng: -79.386078,
+  creator_id: User.all.shuffle.sample.id
+})
+
+event10 = cat12.events.create!({
+  name: "Games",
+  description: "Checkout the railway museum?",
+  cover_img: Faker::Avatar.image,
+  start_date: DateTime.new(2017,9,1),
+  end_date: DateTime.new(2017,9,10),
+  lat: 43.640694,
+  lng: -79.386078,
+  creator_id: User.all.shuffle.sample.id
+})
+
+event10 = cat13.events.create!({
+  name: "Shopping",
+  description: "Checkout the railway museum?",
+  cover_img: Faker::Avatar.image,
+  start_date: DateTime.new(2017,9,1),
+  end_date: DateTime.new(2017,9,10),
+  lat: 43.640694,
+  lng: -79.386078,
+  creator_id: User.all.shuffle.sample.id
+})
+
+event10 = cat14.events.create!({
+  name: "Other",
+  description: "Checkout the railway museum?",
+  cover_img: Faker::Avatar.image,
+  start_date: DateTime.new(2017,9,1),
+  end_date: DateTime.new(2017,9,10),
+  lat: 43.640694,
+  lng: -79.386078,
+  creator_id: User.all.shuffle.sample.id
+})
+
 ##events_users
 
 200.times do
@@ -174,7 +219,7 @@ event10 = cat10.events.create!({
   u = User.all.shuffle.sample
   eu.user = u
   eu.event = e
-  status_array = ["Going", "Interested"]
+  status_array = ["Attending", "Interested"]
   eu.status = status_array.shuffle.sample
   rating_array = [1,2,3,4,5]
   eu.rating = rating_array.shuffle.sample

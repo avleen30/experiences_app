@@ -84,11 +84,10 @@
   </footer>
 
     <script type="text/javascript">
-    // function updateStatusCallback(res){
-    //     alert('Status updated!!');
-    //     console.log(res);
-    //     window.location.replace("/auth/facebook/callback");
-    //     }
+      function updateStatusCallback(res){
+        console.log(res);
+        // window.location.replace(`/auth/facebook/callback?signed_request=${res.authResponse.signedRequest}`);
+      }
 
       $.ajaxSetup({ cache: true });
       $.getScript('//connect.facebook.net/en_US/sdk.js', function(){

@@ -10,9 +10,9 @@
   <% end %>
 </ul>
 
-<div class="navbar-fixed">
+<div class="row navbar-fixed">
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper nav-mobile">
     <% if current_user %>
       <a href="/events" class="brand-logo">Experiences</a>
       <% else %>
@@ -23,22 +23,184 @@
 
       <% if current_user %>
 
-      <li><a href="/events/new" class="modal-trigger waves-effect waves-light btn">Create Event<i class="material-icons right">add</i></a></li>
+      <li><a class="waves-effect waves-light btn modal-trigger" href="#modal3">Create Event<i class="material-icons right">add</i></a></li>
 
-      <li><% image_tag current_user.avatar %></li>
+
 
      <!-- Dropdown Trigger -->
       <li><a class="dropdown-button" href="/" data-activates="dropdown1"><%= current_user.first_name %><i class="material-icons right">arrow_drop_down</i></a></li>
        </li>
 
       <% else %>
-        <li><%= link_to 'Login', '/login' %></li>
-        <li><%= link_to 'Signup', '/signup' %></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Sign-up</a></li>
       <% end %>
-
       </ul>
     </div>
   </nav>
 </div>
 
 
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+     <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    <%= form_tag '/login' do %>
+    <form method="GET" action="/login" class="form-inline">
+      <div class="form-group">
+        <label for="exampleInputName2">Email</label>
+        <input type="Email" class="form-control" id="exampleInputName2" placeholder="Email" <%= text_field_tag :email %>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail2">Password</label>
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" <%= password_field_tag :password %>
+      </div>
+
+      <button type="submit" class="btn btn-default" <%= submit_tag "Submit" %> Login </button>
+    </form>
+    <% end %>
+
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+
+<%= form_for(User.new) do |f| %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+
+  <div class="field" style="height: 1em; width: 1em;">
+    <%= f.label :avatar %><br>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="datepicker field">
+    <%= f.label :dob %>
+    <%= f.text_field :dob %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+</div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+
+<%= form_for(Event.new) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cover_img %><br>
+    <%= f.file_field :cover_img %>
+  </div>
+
+  <div class="datepicker field">
+   <%= text_field_tag :event_date_filter, '', class: 'datepicker', :placeholder => "Date"%>
+  </div>
+
+  <div class="timepicker field">
+    <%= f.label :end_date %>
+    <%= f.text_field :end_date %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :lng, 'Longitude' %>
+    <%= f.text_field :lng %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lat, 'Latitude' %>
+    <%= f.text_field :lat %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+</div>
+</div>
+
+<script type="text/javascript">
+$('.parallax').parallax();
+    $('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+    }
+  );
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+window.events = <%== @events.to_json %>;
+      $('select').material_select();
+       $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+
+</script>

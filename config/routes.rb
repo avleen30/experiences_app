@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :events
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
   resources :events do
     resources :posts
   end
@@ -23,8 +23,8 @@ Rails.application.routes.draw do
 
     #adding routes for Facebook user login
 
-    get 'auth/facebook/callback', to: 'sessions#create'
-    get 'auth/failure', to: redirect('/')
+    match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+    match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
 #adding routes for user registration
 

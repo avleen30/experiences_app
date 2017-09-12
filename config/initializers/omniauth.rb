@@ -6,7 +6,3 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
 end
 
-Rails.application.routes.draw do
-  get 'auth/facebook', to: "sessions#create"
-  get 'auth/failure', to: redirect('/')
-end

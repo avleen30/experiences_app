@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find params[:id]
     @post = @event.posts.build
+    @event_users = EventsUser.where(event_id: params[:id])
   end
 
   # GET /events/new
@@ -76,7 +77,7 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
-    session[:event_id] = @event.id
+    session[:event_id] = @event[:id]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

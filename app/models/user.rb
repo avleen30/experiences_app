@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :posts
 
-  # mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
 
 
 
@@ -19,7 +19,7 @@ class User < ApplicationRecord
   # validates_processing_of :image
   # validate :image_size_validation
 
-   def full_name
+  def full_name
     "#{first_name} #{last_name}"
   end
 

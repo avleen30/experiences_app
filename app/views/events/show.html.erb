@@ -1,3 +1,7 @@
+<div class="parallax-container">
+
+<%= render 'users/show' %>
+
 <p id="notice">
   <%= notice %>
 </p>
@@ -93,15 +97,18 @@
 
             <div>
               <p> THIS IS THE USERS ATTENDING SECTION</p>
-  
+
               <% @event_users.each do |eu| %>
               <dd>
-              <dl >User # <%= eu.id %> 
-                <%= eu.user.first_name %> 
-                <%= eu.user.last_name %> 
+              <dl >User # <%= eu.id %>
+                <%= eu.user.first_name %>
+                <%= eu.user.last_name %>
                 is <strong> <%= eu.status %> </strong>
               </dl>
               </dd>
               <% end %>
 
             </div>
+
+</div>
+

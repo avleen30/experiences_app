@@ -1,0 +1,19 @@
+<div>
+<% if current_user %>
+  <div id="review-form" class="row">
+    <div class="col-sm-12">
+
+      <h3>Event Discussion:</h3>
+      <%= form_for [@event, @post] do |form| %>
+
+        <div class="form-group">
+          <%= form.label :content %>
+            <%= form.text_area :content, rows: '4', class: 'form-control' %>
+        </div>
+        <%= form.submit 'Submit', class: 'btn btn-primary' %>
+
+          <% end %>
+    </div>
+  </div>
+<% end %>
+</div>

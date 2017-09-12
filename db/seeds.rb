@@ -230,7 +230,7 @@ end
 #   })
 
 
-# ## POSTS
+## POSTS
 
 # user1.posts.create!({
 #   line_items: [line_item1],

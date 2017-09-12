@@ -1,0 +1,16 @@
+    <div>
+      <dl class="dl-horizontal">
+        <dd><strong><h4>Posts</h4></strong></dd>
+        <dd>
+          <hr>
+          <% @event.posts.each do |post| %>
+            <p><strong>User #<%= post.user_id %>'s post:</strong></p>
+            <p>
+              <%= post.content %>
+            </p>
+
+            <hr>
+            <% end %>
+        </dd>
+      </dl>
+    </div>

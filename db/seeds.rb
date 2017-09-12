@@ -175,40 +175,40 @@ event10 = cat10.events.create!({
 
 
 event11 = cat11.events.create!({
-  name: "Cooking",
-  description: "Checkout the railway museum?",
+  name: "Cooking class",
+  description: "Let's try the free cooking class @ Longos!",
   cover_img: Faker::Avatar.image,
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
-  lat: 43.640694,
-  lng: -79.386078,
+  lat: 43.642459,
+  lng: -79.380840,
   creator_id: User.all.shuffle.sample.id
 })
 
 event12 = cat12.events.create!({
-  name: "Games",
-  description: "Checkout the railway museum?",
+  name: "Games & beers?",
+  description: "Wanna go see what the rec room is all about",
   cover_img: Faker::Avatar.image,
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
-  lat: 43.640694,
-  lng: -79.386078,
+  lat: 43.641194,
+  lng: -79.386770,
   creator_id: User.all.shuffle.sample.id
 })
 
 event13 = cat13.events.create!({
-  name: "Shopping",
-  description: "Checkout the railway museum?",
+  name: "Shopping for shoes!",
+  description: "Let's go shoe shopping at the Eaton Centre!",
   cover_img: Faker::Avatar.image,
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
-  lat: 43.640694,
-  lng: -79.386078,
+  lat: 43.654011,
+  lng: -79.380574,
   creator_id: User.all.shuffle.sample.id
 })
 
 event14 = cat14.events.create!({
-  name: "Other",
+  name: "Let's aimlessly roam",
   description: "Anyone want to just roam around or hang on a park bench?",
   cover_img: Faker::Avatar.image,
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
@@ -230,7 +230,7 @@ event15 = cat15.events.create!({
 })
 
 event16 = cat1.events.create!({
-  name: "Hiking",
+  name: "Hiking through Riverdale",
   description: "Let's go explore Riverdale!",
   cover_img: Faker::Avatar.image,
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
@@ -241,13 +241,35 @@ event16 = cat1.events.create!({
 })
 
 event17 = cat1.events.create!({
-  name: "Hiking",
+  name: "Hike @ the park!",
   description: "Let's checkout Tommy Thompson Park!",
   cover_img: Faker::Avatar.image,
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.629181,
   lng: -79.327854,
+  creator_id: User.all.shuffle.sample.id
+})
+
+event18 = cat2.events.create!({
+  name: "Drinks",
+  description: "Going for a drink (or 10)",
+  cover_img: Faker::Avatar.image,
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
+  time: rand(0000..2359),
+  lat: 43.647967,
+  lng: -79.377248,
+  creator_id: User.all.shuffle.sample.id
+})
+
+event19 = cat2.events.create!({
+  name: "Drinks",
+  description: "Going for a drink (or 10)",
+  cover_img: Faker::Avatar.image,
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
+  time: rand(0000..2359),
+  lat: 43.644554,
+  lng: -79.399919,
   creator_id: User.all.shuffle.sample.id
 })
 

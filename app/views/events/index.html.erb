@@ -77,10 +77,69 @@ function initMap() {
                 content: contentData(event)
               });
 
-              var marker = new google.maps.Marker({
-                position: {lat: event.lat, lng: event.lng},
-                map: map
-              })
+              // var marker = new google.maps.Marker({
+              //   position: {lat: event.lat, lng: event.lng},
+              //   map: map
+              // })
+
+           var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+              var icons = {
+                Drinks: {
+                  icon: iconBase + 'bars.png'
+                },
+                Trip: {
+                  icon: iconBase + 'hiker.png'
+                },
+                 Party: {
+                  icon: iconBase + 'firedept.png'
+                },
+                 Coffee: {
+                  icon: iconBase + 'coffee.png'
+                },
+                 Sports: {
+                  icon: iconBase + 'play.png'
+                },
+                 Walk: {
+                  icon: iconBase + 'trail.png'
+                },
+                 Meal: {
+                  icon: iconBase + 'snack_bar.png'
+                },
+                 Photography: {
+                  icon: iconBase + 'camera.png'
+                },
+                 Art: {
+                  icon: iconBase + 'arts.png'
+                },
+                 Cultural: {
+                  icon: iconBase + 'schools.png'
+                },
+                 Cook: {
+                  icon: iconBase + 'dining.png'
+                },
+                Shopping: {
+                  icon: iconBase + 'shopping.png'
+                },
+                Games: {
+                  icon: iconBase + 'volcano.png'
+                },
+                Others: {
+                  icon: iconBase + 'star.png'
+                }
+
+              };
+
+              //function addMarker(event) {
+                console.log(event);
+                console.log(event.icon.name);
+                var marker = new google.maps.Marker({
+                  position: {lat: event.lat, lng: event.lng},
+
+                  icon: icons[event.icon.name].icon,
+                  map: map
+                });
+              //}
+
               marker.addListener('click', function() {
               infowindow.open(map, marker);
               });
@@ -107,14 +166,14 @@ function initMap() {
           <span class="card-title"><%=event.name%></span>
 
         <div class="fixed-action-btn horizontal" style="position:absolute; float:right; bottom:5px; right:-5px">
-          <a class="btn-floating halfway-fab waves-effect waves-light #26a69a">
+          <a class="btn-floating halfway-fab waves-effect waves-light #26a69a" title="Experience's Info">
           <i class="large material-icons">info_outline</i>
            </a>
 
           <ul>
-            <li><a class="btn-floating #ee6e73"><i class="material-icons">event_available</i></a></li>
-            <li><a class="btn-floating #ee6e73 darken-1"><i class="material-icons">star</i></a></li>
-            <li><a class="btn-floating #ee6e73" href="/events/<%= event.id %>"><i class="material-icons">pageview</i></a></li>
+            <li><a class="btn-floating #ee6e73" title="Attending"><i class="material-icons">event_available</i></a></li>
+            <li><a class="btn-floating #ee6e73 darken-1" title="Interested"><i class="material-icons">star</i></a></li>
+            <li><a class="btn-floating #ee6e73" title="Experience's Page" href="/events/<%= event.id %>"><i class="material-icons">pageview</i></a></li>
          </ul>
         </div>
         </div>

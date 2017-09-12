@@ -46,12 +46,14 @@ puts "Creating users...."
 
 100.times do
   u=User.new
-  u.first_name = Faker::Name.first_name
-  u.last_name = Faker::Name.last_name
-  u.email = Faker::Internet.email
+  f_name = Faker::Name.first_name
+  l_name = Faker::Name.last_name
+  u.first_name = f_name
+  u.last_name = l_name
+  u.email = f_name + "." + l_name + "@email.com"
   u.password = '123'
   u.password_confirmation = '123'
-  u.avatar = Faker::Avatar.image
+  u.avatar = Faker::Avatar.image("50x50")
   gender_array = ["Male", "Female"]
   u.gender = gender_array.shuffle.sample
   u.save
@@ -65,7 +67,7 @@ event1 = cat1.events.create!({
   name: "Hike",
   description: "Going for a hike!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.621441,
   lng: -79.395799,
@@ -76,7 +78,7 @@ event2 = cat2.events.create!({
   name: "Drinks",
   description: "Going for a drink (or 10)",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.644554,
   lng: -79.399919,
@@ -87,7 +89,7 @@ event3 = cat3.events.create!({
   name: "Party",
   description: "Having a party this weekend",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.646530,
   lng: -79.390462,
@@ -98,7 +100,7 @@ event4 = cat4.events.create!({
   name: "Coffee",
   description: "Grab a coffee?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.645545,
   lng: -79.395432,
@@ -109,7 +111,7 @@ event5 = cat5.events.create!({
   name: "Football",
   description: "Catch a football game at Real Sports",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.642828,
   lng: -79.379593,
@@ -120,7 +122,7 @@ event6 = cat6.events.create!({
   name: "Walk",
   description: "Go for a little stroll before the snow comes...",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.639083,
   lng: -79.382786,
@@ -131,7 +133,7 @@ event7 = cat7.events.create!({
   name: "Dinner",
   description: "Let's grab a bite to eat!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.645957,
   lng: -79.381032,
@@ -142,7 +144,7 @@ event8 = cat8.events.create!({
   name: "Photography",
   description: "Anyone want to roam the city and snap some pictures!?!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.637081,
   lng: -79.393291,
@@ -153,7 +155,7 @@ event9 = cat9.events.create!({
   name: "Art",
   description: "Going to AGO this weekend",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.653465,
   lng: -79.392430,
@@ -164,7 +166,7 @@ event10 = cat10.events.create!({
   name: "Cultural",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
@@ -176,7 +178,7 @@ event11 = cat11.events.create!({
   name: "Cooking",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
@@ -187,7 +189,7 @@ event12 = cat12.events.create!({
   name: "Games",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
@@ -198,7 +200,7 @@ event13 = cat13.events.create!({
   name: "Shopping",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
@@ -209,7 +211,7 @@ event14 = cat14.events.create!({
   name: "Other",
   description: "Anyone want to just roam around or hang on a park bench?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
@@ -220,7 +222,7 @@ event15 = cat15.events.create!({
   name: "Cultural",
   description: "Want to go see the Toronto Necropolis?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.667657,
   lng: -79.361570,
@@ -231,7 +233,7 @@ event16 = cat1.events.create!({
   name: "Hiking",
   description: "Let's go explore Riverdale!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.670367,
   lng: -79.356343,
@@ -240,9 +242,9 @@ event16 = cat1.events.create!({
 
 event17 = cat1.events.create!({
   name: "Hiking",
-  description: "Let's go explore Riverdale!",
+  description: "Let's checkout Tommy Thompson Park!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.629181,
   lng: -79.327854,

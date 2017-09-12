@@ -254,7 +254,7 @@ event17 = cat1.events.create!({
 
 puts "Creating the table of attendees..."
 
-200.times do
+300.times do
   eu = EventsUser.new
   e = Event.all.shuffle.sample
   u = User.all.shuffle.sample

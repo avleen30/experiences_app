@@ -6,8 +6,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :posts
 
-  mount_uploader :avatar, AvatarUploader
-  mount_uploader :image, ImageUploader
+  # mount_uploader :avatar, AvatarUploader
 
 
 
@@ -17,8 +16,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates_processing_of :image
-  validate :image_size_validation
+  # validates_processing_of :image
+  # validate :image_size_validation
 
    def full_name
     "#{first_name} #{last_name}"
@@ -26,7 +25,7 @@ class User < ApplicationRecord
 
 
   def user_params
-    params.require(:user).permit(:name, :about, :avatar, :cover,
+    params.require(:user).permit(:name, :about, :cover,
                                  :sex, :dob, :location, :phone_number)
   end
 
@@ -40,23 +39,21 @@ class User < ApplicationRecord
     end
   end
 
-  def self.create_with_omniauth(auth)
-
-  user = find_or_create_by(uid: auth['uid'], provider:  auth['provider'])
-  user.email = "#{auth['uid']}@#{auth['provider']}.com"
-  user.password = auth['uid']
-  user.name = auth['info']['name']
-  if User.exists?(user)
-    user
-  else
-    user.save!
-    user
-  end
+ def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
   end
 
   private
-  def image_size_validation
-    errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
-  end
+  # def image_size_validation
+  #   errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
+  # end
 
 end
+

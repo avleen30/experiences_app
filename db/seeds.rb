@@ -34,12 +34,17 @@ cat12 = Category.find_or_create_by! name: 'Games'
 cat13 = Category.find_or_create_by! name: 'Shopping'
 cat14 = Category.find_or_create_by! name: 'Others'
 
-## USERS
+puts "Clearing old data...."
+
 EventsUser.destroy_all
 User.destroy_all
 Event.destroy_all
 
-50.times do
+## USERS
+
+puts "Creating users...."
+
+100.times do
   u=User.new
   u.first_name = Faker::Name.first_name
   u.last_name = Faker::Name.last_name
@@ -54,15 +59,14 @@ end
 
 ## EVENTS
 
-puts "Re-creating Events ..."
-
+puts "Creating Events ..."
 
 event1 = cat1.events.create!({
   name: "Hike",
   description: "Going for a hike!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.621441,
   lng: -79.395799,
   creator_id: User.all.shuffle.sample.id
@@ -72,8 +76,8 @@ event2 = cat2.events.create!({
   name: "Drinks",
   description: "Going for a drink (or 10)",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.644554,
   lng: -79.399919,
   creator_id: User.all.shuffle.sample.id
@@ -83,8 +87,8 @@ event3 = cat3.events.create!({
   name: "Party",
   description: "Having a party this weekend",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.646530,
   lng: -79.390462,
   creator_id: User.all.shuffle.sample.id
@@ -94,8 +98,8 @@ event4 = cat4.events.create!({
   name: "Coffee",
   description: "Grab a coffee?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.645545,
   lng: -79.395432,
   creator_id: User.all.shuffle.sample.id
@@ -105,8 +109,8 @@ event5 = cat5.events.create!({
   name: "Football",
   description: "Catch a football game at Real Sports",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.642828,
   lng: -79.379593,
   creator_id: User.all.shuffle.sample.id
@@ -116,8 +120,8 @@ event6 = cat6.events.create!({
   name: "Walk",
   description: "Go for a little stroll before the snow comes...",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.639083,
   lng: -79.382786,
   creator_id: User.all.shuffle.sample.id
@@ -127,8 +131,8 @@ event7 = cat7.events.create!({
   name: "Dinner",
   description: "Let's grab a bite to eat!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.645957,
   lng: -79.381032,
   creator_id: User.all.shuffle.sample.id
@@ -138,8 +142,8 @@ event8 = cat8.events.create!({
   name: "Photography",
   description: "Anyone want to roam the city and snap some pictures!?!",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.637081,
   lng: -79.393291,
   creator_id: User.all.shuffle.sample.id
@@ -149,8 +153,8 @@ event9 = cat9.events.create!({
   name: "Art",
   description: "Going to AGO this weekend",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.653465,
   lng: -79.392430,
   creator_id: User.all.shuffle.sample.id
@@ -160,60 +164,95 @@ event10 = cat10.events.create!({
   name: "Cultural",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
   creator_id: User.all.shuffle.sample.id
 })
 
-event10 = cat11.events.create!({
+
+event11 = cat11.events.create!({
   name: "Cooking",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
   creator_id: User.all.shuffle.sample.id
 })
 
-event10 = cat12.events.create!({
+event12 = cat12.events.create!({
   name: "Games",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
   creator_id: User.all.shuffle.sample.id
 })
 
-event10 = cat13.events.create!({
+event13 = cat13.events.create!({
   name: "Shopping",
   description: "Checkout the railway museum?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
   creator_id: User.all.shuffle.sample.id
 })
 
-event10 = cat14.events.create!({
+event14 = cat14.events.create!({
   name: "Other",
-  description: "Checkout the railway museum?",
+  description: "Anyone want to just roam around or hang on a park bench?",
   cover_img: Faker::Avatar.image,
-  start_date: DateTime.new(2017,9,1),
-  end_date: DateTime.new(2017,9,10),
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
   lat: 43.640694,
   lng: -79.386078,
   creator_id: User.all.shuffle.sample.id
 })
+
+event15 = cat15.events.create!({
+  name: "Cultural",
+  description: "Want to go see the Toronto Necropolis?",
+  cover_img: Faker::Avatar.image,
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
+  lat: 43.667657,
+  lng: -79.361570,
+  creator_id: User.all.shuffle.sample.id
+})
+
+event16 = cat1.events.create!({
+  name: "Hiking",
+  description: "Let's go explore Riverdale!",
+  cover_img: Faker::Avatar.image,
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
+  lat: 43.670367,
+  lng: -79.356343,
+  creator_id: User.all.shuffle.sample.id
+})
+
+event17 = cat1.events.create!({
+  name: "Hiking",
+  description: "Let's go explore Riverdale!",
+  cover_img: Faker::Avatar.image,
+  start_date: DateTime.new(2017,rand(9..12),rand(1..30)),
+  time: rand(0000..2359),
+  lat: 43.629181,
+  lng: -79.327854,
+  creator_id: User.all.shuffle.sample.id
+})
+
 
 ##events_users
 
-puts "Creating the table of attendees"
+puts "Creating the table of attendees..."
 
 200.times do
   eu = EventsUser.new

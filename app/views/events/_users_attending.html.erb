@@ -1,0 +1,11 @@
+<p> USERS ATTENDING</p>
+
+<% @event_users.each do |eu| %>
+<dd>
+<dl >User # <%= eu.id %>
+  <%= eu.user.first_name %>
+  <%= eu.user.last_name %>
+  is <strong> <%= eu.status %> </strong>
+</dl>
+</dd>
+<% end %>

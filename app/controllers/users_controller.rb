@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find params[:id]
+    @post = @user.posts.build
   end
 
   # GET /users/new
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @users = User.find params[:id]
   end
 
   # POST /users
@@ -40,6 +43,12 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    u = User.new
+    u.avatar = params[:file]
+    # puts "-------"
+    # puts params[:file]
+
+
     respond_to do |format|
       puts user_params
       puts @user
@@ -78,6 +87,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :gender, :dob)
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :gender, :dob, :avatar)
     end
 end

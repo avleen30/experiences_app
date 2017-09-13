@@ -5,7 +5,7 @@ class Event < ApplicationRecord
     belongs_to :user, foreign_key: :creator_id
     belongs_to :category
 
-    mount_uploader :avatar, AvatarUploader
+    mount_uploader :cover_img, CoverUploader
 
 
     has_many :reviews
@@ -18,10 +18,14 @@ class Event < ApplicationRecord
     validates :end_date, presence: true
     validates :lng, presence: true
     validates :lat, presence: true
+    # validates_processing_of :image
+    # validate :image_size_validation
 
 
 
-
+    def event_params
+    params.require(:event).permit(:name, :about, :cover_img)
+    end
 
     # scope :filtered, -> (time, date, type) {
     #     where(time: time, start_date: date, type: )

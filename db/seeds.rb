@@ -56,7 +56,8 @@ Event.destroy_all
   u.email = Faker::Internet.email
   u.password = '123'
   u.password_confirmation = '123'
-  u.avatar = Faker::Avatar.image
+  avatar_array = [open_asset('avatar2.jpg'), open_asset('avatar3.jpeg'), open_asset('avatar1.jpg')]
+  u.avatar = avatar_array.shuffle.sample
   gender_array = ["Male", "Female"]
   u.gender = gender_array.shuffle.sample
   u.save

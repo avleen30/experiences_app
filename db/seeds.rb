@@ -10,6 +10,17 @@ require 'date'
 
 puts "Seeding Data ..."
 
+# Helper functions
+def open_asset(file_name)
+  File.open(Rails.root.join('db', 'seed_assets', file_name))
+end
+
+# Only run on development (local) instances not on production, etc.
+unless Rails.env.development?
+  puts "Development seeds only (for now)!"
+  exit 0
+end
+
 
 # Let's do this ...
 
@@ -59,7 +70,7 @@ puts "Re-creating Events ..."
 event1 = cat1.events.create!({
   name: "Hike",
   description: "Going for a hike!",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('hiking1.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.621441,
@@ -70,7 +81,7 @@ event1 = cat1.events.create!({
 event2 = cat2.events.create!({
   name: "Drinks",
   description: "Going for a drink (or 10)",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('drinks1.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.644554,
@@ -81,7 +92,7 @@ event2 = cat2.events.create!({
 event3 = cat3.events.create!({
   name: "Party",
   description: "Having a party this weekend",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('party1.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.646530,
@@ -92,7 +103,7 @@ event3 = cat3.events.create!({
 event4 = cat4.events.create!({
   name: "Coffee",
   description: "Grab a coffee?",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('coffee1.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.645545,
@@ -103,7 +114,7 @@ event4 = cat4.events.create!({
 event5 = cat5.events.create!({
   name: "Football",
   description: "Catch a football game at Real Sports",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('sports2.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.642828,
@@ -114,7 +125,7 @@ event5 = cat5.events.create!({
 event6 = cat6.events.create!({
   name: "Walk",
   description: "Go for a little stroll before the snow comes...",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('walk1.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.639083,
@@ -125,7 +136,7 @@ event6 = cat6.events.create!({
 event7 = cat7.events.create!({
   name: "Dinner",
   description: "Let's grab a bite to eat!",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('meal1.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.645957,
@@ -136,7 +147,7 @@ event7 = cat7.events.create!({
 event8 = cat8.events.create!({
   name: "Photography",
   description: "Anyone want to roam the city and snap some pictures!?!",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('photos5.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.637081,
@@ -147,7 +158,7 @@ event8 = cat8.events.create!({
 event9 = cat9.events.create!({
   name: "Art",
   description: "Going to AGO this weekend",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('art2.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.653465,
@@ -158,7 +169,7 @@ event9 = cat9.events.create!({
 event10 = cat10.events.create!({
   name: "Cultural",
   description: "Checkout the railway museum?",
-  cover_img: Faker::Avatar.image,
+  cover_img: open_asset('culture1.jpg'),
   start_date: DateTime.new(2017,9,1),
   end_date: DateTime.new(2017,9,10),
   lat: 43.640694,
@@ -181,77 +192,7 @@ event10 = cat10.events.create!({
   eu.save
 end
 
+puts "DONE!"
 
-## POSTS
-
-# user1.posts.create!({
-#   line_items: [line_item1],
-#   total_cents: 3000,
-#   stripe_charge_id: 12345,
-#   email: 'ruby.gem@gmail.com',
-#   user_id: 1
-#   })
-
-#REVIEWS
-
-# puts "Re-creating Reviews ..."
-
-# Review.destroy_all
-
-# Review.create!({
-#   user: User.first,
-#   product: Product.second,
-#   rating: 5,
-#   description: 'Curious....very Curious!!'
-# })
-
-# Review.create!({
-#   user: User.second,
-#   product: Product.first,
-#   rating: 1,
-#   description: 'Dear god why?'
-# })
-
-# Review.create!({
-#   user: User.third,
-#   product: Product.first,
-#   rating: 3,
-#   description: 'Dude yess'
-# })
-
-# Review.create!({
-#   user: User.fifth,
-#   product: Product.last,
-#   rating: 5,
-#   description: 'LOVE this?'
-# })
-
-# Review.create!({
-#   user: User.fourth,
-#   product: Product.fourth,
-#   rating: 2,
-#   description: 'I am not sure why I bought this'
-# })
-
-# Review.create!({
-#   user: User.sixth,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.seventh,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
-
-# Review.create!({
-#   user: User.ninth,
-#   product: Product.fifth,
-#   rating: 4,
-#   description: 'this made my day!'
-# })
 
 

@@ -182,54 +182,6 @@ event10 = cat10.events.create!({
 end
 
 
-# user1 = User.create!({
-#   first_name: 'Ruby',
-#   last_name: 'Gem',
-#   email: 'ruby.gem@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'female',
-#   avatar: open_asset('apparel1.jpg')
-#   })
-
-# user2 = User.create!({
-#   first_name: 'Avi',
-#   last_name: 'Sings',
-#   email: 'Avi@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'female',
-#   avatar:
-#   })
-
-# user3 = User.create!({
-#   first_name: 'Bob',
-#   last_name: 'Marley',
-#   email: 'iamcool@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'male'
-#   })
-
-# user4 = User.create!({
-#   first_name: 'Mahatma',
-#   last_name: 'Gandhi',
-#   email: 'peace@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'male'
-#   })
-
-# user5 = User.create!({
-#   first_name: 'Mary',
-#   last_name: 'Poppins',
-#   email: 'Supercalafajalistickexpialadojus@gmail.com',
-#   password: '123',
-#   password_confirmation: '123',
-#   gender: 'female'
-#   })
-
-
 ## POSTS
 
 # user1.posts.create!({

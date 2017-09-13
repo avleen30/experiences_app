@@ -16,8 +16,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  # validates_processing_of :image
-  # validate :image_size_validation
 
   def full_name
     "#{first_name} #{last_name}"

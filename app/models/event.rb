@@ -13,13 +13,11 @@ class Event < ApplicationRecord
 
     validates :name, presence: true
     validates :description, presence: true
-    # validates :creator_id, presence: true
+    validates :creator_id, presence: true
     # validates :start_date, presence: true
     validates :end_date, presence: true
     validates :lng, presence: true
     validates :lat, presence: true
-    # validates_processing_of :image
-    # validate :image_size_validation
 
 
 

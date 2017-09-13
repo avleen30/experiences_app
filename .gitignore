@@ -24,3 +24,7 @@
 .DS_Store
 # Ignore application configuration
 /config/application.yml
+
+/public/uploads/event
+/public/uploads/user
+

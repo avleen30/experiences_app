@@ -4,7 +4,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
-  process resize_to_fill: [200, 200]
+  process resize_to_fill: [700, 800]
   process convert: 'png'
 
   # Choose what kind of storage to use for this uploader:
@@ -26,7 +26,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_fit => [200, 300]
+  process :resize_to_fit => [500, 700]
   #
   # def scale(width, height)
   #   # do something

@@ -27,6 +27,11 @@
     <%= f.file_field :cover_img %>
   </div>
 
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :remote_cover_img_url %>
+  </div>
+
   <div class="datepicker field">
    <%= text_field_tag :event_date_filter, '', class: 'datepicker', :placeholder => "Date"%>
   </div>

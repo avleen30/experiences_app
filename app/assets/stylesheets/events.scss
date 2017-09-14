@@ -3,10 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .event_detail_map {
-    height: 300px;
-    width: 300px;
-    border-radius: 15px;
-    border: 2px solid black;
+    height: 400px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #ee6e73;
+    align:left;
+    float:right;
+    margin-bottom: 20px;
+
 
 }
 .card {
@@ -97,3 +101,117 @@ icons {
   height: 40px;
   width: 40px;
 }
+#eventinfo{
+  float:left;
+  width: 65%;
+  padding:10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid #ee6e73;
+
+}
+#userinfo {
+  float:right;
+  width: 25%;
+  height: 100%;
+  padding:10px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 2px solid #26a69a;
+  background: white;
+  overflow: hidden;
+}
+#attendes{
+
+  float:left;
+  width: 25%;
+  height: 100%;
+  padding:10px;
+  margin-right: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 2px solid #26a69a;
+  background: white;
+  overflow: hidden;
+
+}
+
+#nameofevent{
+  font-size: 50px;
+  color:#26a69a;
+  float: left;
+  padding: 10px;
+  z-axis:-1;
+}
+
+#creator{
+  color:white;
+  padding: 10px;
+  margin:-10px;
+  margin-bottom: 15px;
+  background: #26a69a;
+}
+#title{
+  color:white;
+  padding: 10px;
+  margin:-10px;
+  margin-bottom: 15px;
+  background: #ee6e73;
+}
+#posts{
+  float:left;
+  width: 65%;
+  padding:10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid #ee6e73;
+}
+
+#review-form{
+  float:left;
+  width: 100%;
+  padding:10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid #ee6e73;
+}
+#posted{
+  float:left;
+  width: 100%;
+  padding:10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid #ee6e73;
+
+}
+#disscusion{
+  font-size: 30px;
+  position: relative;
+  color:white;
+  background: #ee6e73;
+  margin-bottom: 10px;
+  margin-top:-10px;
+  margin-left:-10px;
+  margin-right:-10px;
+  padding: 10px;
+}
+#posttitle{
+  font-size: 20px;
+  color:white;
+  background: #ee6e73;
+  margin-bottom: 10px;
+  margin-top:-10px;
+    margin-left:-10px;
+     margin-right:-10px;
+  padding: 10px;
+}
+#attendestitle{
+   color:white;
+  padding: 10px;
+  margin:-10px;
+  margin-bottom: 15px;
+  background: #26a69a;
+}
+

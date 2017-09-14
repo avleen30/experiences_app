@@ -1,35 +1,35 @@
-<div class="container">
-<div id="user-info" class="col s3">
+<div class="container" id="user_info">
+  <div id="user-info" class="col s3">
 
-    <h5><%= link_to @user.full_name, @user %></h5>
+      <h6><%= link_to @user.full_name, @user %></h6>
+    </div>
+    <% if @user.dob.present? %>
+      <h6>
+        <%= fa_icon @user.sex %>
+        <%= "#{pluralize(age(@user.dob), 'year')} old" %>
+      </h6>
+    <% end %>
+
+  <div class="col s9">
+    <div id="notice"><%= notice %></div>
+
+    <div>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </div>
+
+
+    <div>
+      <strong>Gender:</strong>
+      <%= @user.gender %>
+    </div>
+
+
+    <div>
+      <strong>Dob:</strong>
+      <%= @user.dob %>
+    </div>
   </div>
-  <% if @user.dob.present? %>
-    <h5>
-      <%= fa_icon @user.sex %>
-      <%= "#{pluralize(age(@user.dob), 'year')} old" %>
-    </h5>
-  <% end %>
-
-<div class="col s9">
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
-
-
-<p>
-  <strong>Dob:</strong>
-  <%= @user.dob %>
-</p>
-</div>
 </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

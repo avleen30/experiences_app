@@ -45,6 +45,9 @@ gem 'font-awesome-rails'
 #generates fake data
 gem 'faker'
 
+#for selecting images
+gem 'image-picker-rails'
+
 
 #carrierwave provides a simple and extremely flexible way to upload files from Ruby applications
 gem 'carrierwave'

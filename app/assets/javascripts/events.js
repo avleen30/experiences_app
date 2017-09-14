@@ -49,3 +49,4 @@ function initMap_detail() {
       })
     })
 }
+

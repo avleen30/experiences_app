@@ -38,6 +38,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
+    @event.category = Category.find_by(name: params[:category_name])
 
     respond_to do |format|
       if @event.save
@@ -89,6 +90,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:id, :name, :description, :cover_img, :start_date, :end_date, :creator_id, :lng, :lat, :remote_cover_img_url)
+    params.require(:event).permit(:id, :name, :description, :cover_img, :start_date, :end_date, :creator_id, :lng, :lat, :remote_cover_img_url, :category_name)
   end
 end

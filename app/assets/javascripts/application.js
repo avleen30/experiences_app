@@ -15,9 +15,14 @@
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
 //= require_tree .
+//= require image-picker
+
 
   $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.carousel').carousel();
+    $('select').material_select();
+    $('.materialboxed').materialbox();
     $('.parallax').parallax();
     $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal

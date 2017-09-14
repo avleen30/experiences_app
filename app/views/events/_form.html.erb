@@ -17,6 +17,28 @@
     <%= f.text_field :name %>
   </div>
 
+  <div class="input-field">
+    <select name="category_name">
+      <option value="" disabled selected>Choose your category</option>
+      <option value="Art">Art</option>
+      <option value="2">Coffee</option>
+      <option value="3">Cooking</option>
+      <option value="1">Culture</option>
+      <option value="2">Drinks</option>
+      <option value="3">Games</option>
+      <option value="1">Hiking</option>
+      <option value="2">Meal</option>
+      <option value="3">Party</option>
+      <option value="1">Photography</option>
+      <option value="2">Shopping</option>
+      <option value="3">Sports</option>
+      <option value="3">Trip</option>
+      <option value="3">Walk</option>
+      <option value="3">Others</option>
+    </select>
+    <label>Select a Category</label>
+  </div>
+
   <div class="field">
     <%= f.label :description %>
     <%= f.text_field :description %>
@@ -26,6 +48,8 @@
     <%= f.label :cover_img %><br>
     <%= f.file_field :cover_img %>
   </div>
+
+  <!-- OR -->
 
   <div class="field">
     <%= f.label :image_url %><br>
@@ -56,5 +80,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
 </div>
+
 

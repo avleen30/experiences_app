@@ -56,25 +56,29 @@ Event.destroy_all
 
 puts "Creating users...."
 
-25.times do
+30.times do
   u=User.new
-  f_name = Faker::Name.first_name
-  l_name = Faker::Name.last_name
-  u.first_name = f_name
-  u.last_name = l_name
-  u.email = f_name + "." + l_name + "@email.com"
+  female_first_name_array = ['Cherrita', 'Barbra', 'Tally', 'Auberta', 'Ingaberg', 'Ameline', 'Melessa', 'Caroline', 'Livvy', 'Dorothee', 'Abbi',
+    'Stormi', 'Hermine', 'Fey','Jeanie','Norene','Chastity','Cloris','Liane','Donica','Corina','Tersina','Marylinda','Erminia','Myrlene',
+    'Deeann','Melinda','Rani','Malinde']
+  female_last_name_array = ['Tullius','Crawford','Colton','Burr','Tolve','Hillenbach','Aijian','Batic','Shearrion','Lesse','Mayman','Abel','Barber',
+    'Monien','Dumay','Stokey','Gillis','Pisapio','Sacco','Peckham','Hind','Furno','Anzalone','Rimbach','Peterson','Rosenkrantz','Melinda Beane',
+    'Dapice', 'Moura']
+  u.first_name = female_first_name_array.shuffle.sample
+  u.last_name = female_last_name_array.shuffle.sample
+  u.email = u.first_name + "." + u.last_name + "@email.com"
   u.password = '123'
   u.password_confirmation = '123'
   avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_asset('f_av3.jpeg'), open_asset('f_av4.jpeg'), 
-  open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'), 
-  open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'), 
-  open_asset('f_av15.jpeg')]
+    open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'), 
+    open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'), 
+    open_asset('f_av15.jpeg')]
   u.avatar = avatar_array.shuffle.sample
   u.gender = "Female"
   u.save
 end
 
-25.times do
+30.times do
   f_name = Faker::Name.first_name
   l_name = Faker::Name.last_name
   u.first_name = f_name
@@ -90,6 +94,12 @@ end
   u.gender = "Male"
   u.save
 end
+
+
+
+
+
+
 
 ## EVENTS
 
@@ -111,7 +121,7 @@ event2 = cat2.events.create!({
   description: "Going for a drink (or 10)",
   cover_img: open_asset('drinks1.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
-  time: rand(0000..2359),
+  time: rand(1100..2359),
   lat: 43.644554,
   lng: -79.399919,
   creator_id: User.all.shuffle.sample.id
@@ -122,7 +132,7 @@ event3 = cat3.events.create!({
   description: "Having a party this weekend",
   cover_img: open_asset('party1.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
-  time: rand(0000..2359),
+  time: rand(1100..2359),
   lat: 43.646530,
   lng: -79.390462,
   creator_id: User.all.shuffle.sample.id

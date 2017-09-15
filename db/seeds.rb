@@ -162,7 +162,7 @@ event4 = cat4.events.create!({
   description: "Grab a coffee?",
   cover_img: open_asset('coffee1.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
-  time: rand(0000..2359),
+  time: rand(0800..2359),
   lat: 43.645545,
   lng: -79.395432,
   creator_id: User.all.shuffle.sample.id
@@ -173,7 +173,7 @@ event5 = cat5.events.create!({
   description: "Catch a football game at Real Sports",
   cover_img: open_asset('sports2.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
-  time: rand(0000..2359),
+  time: rand(1100..2359),
   lat: 43.642828,
   lng: -79.379593,
   creator_id: User.all.shuffle.sample.id
@@ -195,7 +195,7 @@ event7 = cat7.events.create!({
   description: "Let's grab a bite to eat!",
   cover_img: open_asset('meal1.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
-  time: rand(0000..2359),
+  time: rand(1600..2359),
   lat: 43.645957,
   lng: -79.381032,
   creator_id: User.all.shuffle.sample.id
@@ -217,7 +217,7 @@ event9 = cat9.events.create!({
   description: "Going to AGO this weekend",
   cover_img: open_asset('art2.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
-  time: rand(0000..2359),
+  time: rand(0800..2359),
   lat: 43.653465,
   lng: -79.392430,
   creator_id: User.all.shuffle.sample.id
@@ -228,7 +228,7 @@ event10 = cat10.events.create!({
   description: "Checkout the railway museum?",
   cover_img: open_asset('culture1.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
-  time: rand(0000..2359),
+  time: rand(0800..2359),
   lat: 43.640694,
   lng: -79.386078,
   creator_id: User.all.shuffle.sample.id

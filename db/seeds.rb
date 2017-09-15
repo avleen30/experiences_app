@@ -568,7 +568,7 @@ event37 = cat14.events.create!({
 
 puts "Creating event attendees..."
 
-100.times do
+180.times do
   eu = EventsUser.new
   e = Event.all.shuffle.sample
   u = User.all.shuffle.sample

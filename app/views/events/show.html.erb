@@ -1,4 +1,4 @@
-
+<!-- COVER IMAGE -->
 <div class="parallax-container">
   <div class="parallax"><img src="<%=@event.cover_img%>"></div>
 </div>
@@ -16,80 +16,56 @@
     <div id='event-detail-map' class="event_detail_map"></div>
 </div>
 
-<div class="container" id="eventinfo">
-  <div class="parallax">
-    <h5 id="title"> Event Info:</h5>
-    <div>
-      <strong>Description:</strong>
-      <%= @event.description %>
-    </div>
+
+<div class="row">
+  <div class="col s7" id="eventinfo">
+    <h5 id="eventtitle"> Event Info:</h5>
+      <div>
+        <strong>Description:</strong>
+        <%= @event.description %>
+      </div>
 
 
-    <div>
-      <strong>Start date:</strong>
-      <%= @event.start_date %>
-    </div>
+      <div>
+        <strong>Start date:</strong>
+        <%= @event.start_date %>
+      </div>
 
-    <div>
-      <strong>End date:</strong>
-      <%= @event.end_date %>
-    </div>
+      <div>
+        <strong>End date:</strong>
+        <%= @event.end_date %>
+      </div>
 
-    <div>
-      <strong>Creator:</strong>
-      <%= @event.creator_id %>
-    </div>
+      <div>
+        <strong>Creator:</strong>
+        <%= @event.creator_id %>
+      </div>
 
-    <div>
-      <strong>Longitude:</strong>
-      <%= @event.lng %>
-    </div>
+      <div>
+        <strong>Longitude:</strong>
+        <%= @event.lng %>
+      </div>
 
-    <div>
-      <strong>Latitude:</strong>
-      <%= @event.lat %>
-    </div>
-
-  </div>
-</div>
-
-<% if current_user.id == @event.creator_id %>
-  <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
-   <% end %>
-<div class="container" id="userinfo">
-  <div class="parallax" id="username">
-  <h5 id="creator">Creator Info</h5>
-    <%= render 'users/show' %>
+      <div>
+        <strong>Latitude:</strong>
+        <%= @event.lat %>
+      </div>
   </div>
 
-</div>
-
-<div class="container" id="attendes">
-  <div class="parallax">
-  <h5 id="attendestitle"> Attendes </h5>
-    <% @event_users.each do |eu| %>
-    <dd>
-    <dl >User # <%= eu.id %>
-      <%= eu.user.first_name %>
-      <%= eu.user.last_name %>
-      is <strong> <%= eu.status %> </strong>
-    </dl>
-    </dd>
+  <div class="col s4" id="creator">
+    <% if current_user.id == @event.creator_id %>
+      <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
     <% end %>
+
+        <h5 id="creatortitle">Creator:</h5>
+          <%= render 'users/show' %>
+
   </div>
-</div>
 
-<%= link_to 'Back To Map', events_path %>
-
-
-<div class="container" id="eventinfo">
-  <div class="parallax">
+<div class="col s7" id="disscusion">
   <% if current_user %>
-    <div id="review-form" class="row">
-      <div class="col-sm-12">
-        <div class="container" id="disscusion">
-         Event Discussion:
-        </div>
+         <h5 id="discussiontitle">Event Discussion:</h5>
+
 
         <%= form_for [@event, @post] do |form| %>
 
@@ -100,13 +76,12 @@
           <%= form.submit 'Submit', class: 'btn btn-primary' %>
 
             <% end %>
-      </div>
-    </div>
+
   <% end %>
 
     <div>
-     <div class="container" id="eventinfo">
-      <div id="posttitle">Post</div>
+     <div class="container">
+      <div>Post</div>
 
         <div>
           <% @event.posts.each do |post| %>
@@ -120,7 +95,22 @@
       </div>
 </div>
 
+</div>
+<div class="col s4" id="attendes">
 
+
+      <h5 id="attendestitle"> Attendes: </h5>
+    <% @event_users.each do |eu| %>
+    <dd>
+    <dl >User # <%= eu.id %>
+      <%= eu.user.first_name %>
+      <%= eu.user.last_name %>
+      is <strong> <%= eu.status %> </strong>
+    </dl>
+    </dd>
+    <% end %>
+
+  </div>
 <script>
   window.event = <%== @event.to_json %>;
 </script>
@@ -132,7 +122,3 @@
 <script> $(document).ready(function(){
       $('.parallax').parallax();
     });</script>
-
-
-
-

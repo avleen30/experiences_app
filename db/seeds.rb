@@ -28,6 +28,8 @@ end
 
 puts "Finding or Creating Categories ..."
 
+Category.destroy_all
+
 cat1 = Category.find_or_create_by! name: 'Trip'
 cat2 = Category.find_or_create_by! name: 'Drinks'
 cat3 = Category.find_or_create_by! name: 'Party'
@@ -39,15 +41,21 @@ cat8 = Category.find_or_create_by! name: 'Photography'
 cat9 = Category.find_or_create_by! name: 'Art'
 cat10 = Category.find_or_create_by! name: 'Cultural'
 cat11 = Category.find_or_create_by! name: 'Sports'
-cat12 = Category.find_or_create_by! name: 'Cook'
+cat12 = Category.find_or_create_by! name: 'Cooking'
 cat13 = Category.find_or_create_by! name: 'Games'
 cat14 = Category.find_or_create_by! name: 'Shopping'
 cat15 = Category.find_or_create_by! name: 'Others'
 
-## USERS
+puts "Clearing old data...."
+
+
 EventsUser.destroy_all
 User.destroy_all
 Event.destroy_all
+
+## USERS
+
+puts "Creating users...."
 
 50.times do
   u=User.new

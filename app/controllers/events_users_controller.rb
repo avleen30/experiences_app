@@ -5,11 +5,13 @@ class EventsUsersController < ApplicationController
   # GET /events_users.json
   def index
     @events_users = EventsUser.where(user_id: params[:id])
+    # @events_user = EventsUser.where(user_id: params[:id])
   end
 
   # GET /events_users/1
   # GET /events_users/1.json
   def show
+    # @events_user = EventsUser.new
   end
 
   # GET /events_users/new
@@ -70,7 +72,7 @@ class EventsUsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_events_user
-      @events_user = EventsUser.find(params[:id])
+      @events_user = EventsUser.where(user_id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

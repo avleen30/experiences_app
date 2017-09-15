@@ -1,3 +1,17 @@
+<!-- Radio Button for Users to add status to events: Interested/Going -->
+<%= form_for EventsUser.new do |f| %>
+  <input type="hidden" value="<%= @event.id %>" name="event_id" />
+  <p>
+    <input name="interested" type="radio" id="interested" />
+    <label for="interested">Interested</label>
+  </p>
+  <p>
+    <input name="going" type="radio" id="going" />
+    <label for="going">Going</label>
+  </p>
+  <%= f.submit :Update %>
+<% end %>
+
 <%= render 'users/show' %>
 
 <p id="notice">

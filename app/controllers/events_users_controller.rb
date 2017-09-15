@@ -24,11 +24,17 @@ class EventsUsersController < ApplicationController
   # POST /events_users
   # POST /events_users.json
   def create
-    @events_user = EventsUser.new(events_user_params)
+    status = params[:interested] ? 'Interested' : 'Going'
+    event = Event.find(params[:event_id])
+    @events_user = EventsUser.new(
+      user_id: current_user.id,
+      event_id: event.id,
+      status: status
+    )
 
     respond_to do |format|
       if @events_user.save
-        format.html { redirect_to @events_user, notice: 'Events user was successfully created.' }
+        format.html { redirect_to event, notice: 'Events user was successfully created.' }
         format.json { render :show, status: :created, location: @events_user }
       else
         format.html { render :new }

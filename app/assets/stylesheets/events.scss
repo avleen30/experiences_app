@@ -4,9 +4,12 @@
 
 .event_detail_map {
     height: 300px;
-    width: 300px;
-    border-radius: 15px;
-    border: 2px solid black;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #ee6e73;
+
+    margin-bottom: 20px;
+
 
 }
 .card {
@@ -93,8 +96,79 @@ h4{
 .fixed-action-btn.horizontal ul {
   top: -35px;
 }
+
 icons {
   height: 40px;
   width: 40px;
 }
+
+#eventinfo{
+
+  padding:10px;
+  border-radius: 5px;
+  border: 2px solid #ee6e73;
+  margin:10px;
+
+}
+
+#eventtitle{
+  color:white;
+  padding: 10px;
+  margin:-10px;
+  margin-bottom: 15px;
+  background: #ee6e73;
+}
+#discussiontitle{
+  color:white;
+  padding: 10px;
+  margin:-10px;
+  margin-bottom: 15px;
+  background: #ee6e73;
+}
+
+#disscusion{
+  margin:10px;
+  padding: 10px;
+  border: 2px solid #ee6e73;
+  border-radius: 5px;
+}
+#attendes{
+  padding:10px;
+  border-radius: 5px;
+  border: 2px solid #26a69a;
+  margin:10px;
+}
+#attendestitle{
+ color:white;
+  padding: 10px;
+  margin-left:-10px;
+  margin-right:-10px;
+  margin-top:-10px;
+  margin-bottom: 15px;
+  background: #26a69a;
+}
+#creatortitle{
+  color:white;
+  padding: 10px;
+  margin-left:-18px;
+  margin-right:-18px;
+  margin-top:-10px;
+  margin-bottom: 15px;
+  background: #26a69a;
+}
+#creator{
+  padding:10px;
+  border-radius: 5px;
+  border: 2px solid #26a69a;
+  margin:10px;
+  overflow: hidden;
+}
+#nameofcreator{
+  margin:10px;
+  height: 200px;
+  width:100px;
+  position: absolute;
+}
+
+
 

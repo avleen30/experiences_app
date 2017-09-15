@@ -80,9 +80,9 @@ female_avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_
   u.email = u.first_name + "." + u.last_name + "@email.com"
   u.password = '123'
   u.password_confirmation = '123'
-  avatar = avatar_array.shuffle.sample
+  avatar = female_avatar_array.shuffle.sample
   u.avatar = avatar
-  avatar_array = avatar_array.select{ |a| a != avatar }
+  female_avatar_array = female_avatar_array.select{ |a| a != avatar }
   u.gender = "Female"
   u.save
 end
@@ -111,9 +111,9 @@ male_avatar_array = [open_asset('m_av1.jpeg'), open_asset('m_av2.jpeg'), open_as
   u.email = u.first_name + "." + u.last_name + "@email.com"
   u.password = '123'
   u.password_confirmation = '123'
-  avatar = avatar_array.shuffle.sample
+  avatar = male_avatar_array.shuffle.sample
   u.avatar = avatar
-  avatar_array = avatar_array.select{ |a| a != avatar }
+  male_avatar_array = male_avatar_array.select{ |a| a != avatar }
   u.gender = "Male"
   u.save
 end

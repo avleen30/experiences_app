@@ -223,10 +223,8 @@ event10 = cat10.events.create!({
   u = User.all.shuffle.sample
   eu.user = u
   eu.event = e
-  status_array = ["Going", "Interested"]
+  status_array = ["Attending", "Interested"]
   eu.status = status_array.shuffle.sample
-  rating_array = [1,2,3,4,5]
-  eu.rating = rating_array.shuffle.sample
   eu.save
 end
 

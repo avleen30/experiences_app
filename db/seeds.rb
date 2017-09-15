@@ -48,7 +48,6 @@ cat15 = Category.find_or_create_by! name: 'Others'
 
 puts "Clearing old data...."
 
-
 EventsUser.destroy_all
 User.destroy_all
 Event.destroy_all
@@ -57,17 +56,38 @@ Event.destroy_all
 
 puts "Creating users...."
 
-50.times do
+25.times do
   u=User.new
-  u.first_name = Faker::Name.first_name
-  u.last_name = Faker::Name.last_name
-  u.email = Faker::Internet.email
+  f_name = Faker::Name.first_name
+  l_name = Faker::Name.last_name
+  u.first_name = f_name
+  u.last_name = l_name
+  u.email = f_name + "." + l_name + "@email.com"
   u.password = '123'
   u.password_confirmation = '123'
-  avatar_array = [open_asset('avatar2.jpg'), open_asset('avatar3.jpeg'), open_asset('avatar1.jpg')]
+  avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_asset('f_av3.jpeg'), open_asset('f_av4.jpeg'), 
+  open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'), 
+  open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'), 
+  open_asset('f_av15.jpeg')]
   u.avatar = avatar_array.shuffle.sample
-  gender_array = ["Male", "Female"]
-  u.gender = gender_array.shuffle.sample
+  u.gender = "Female"
+  u.save
+end
+
+25.times do
+  f_name = Faker::Name.first_name
+  l_name = Faker::Name.last_name
+  u.first_name = f_name
+  u.last_name = l_name
+  u.email = f_name + "." + l_name + "@email.com"
+  u.password = '123'
+  u.password_confirmation = '123'
+  avatar_array = [open_asset('m_av1.jpeg'), open_asset('m_av2.jpeg'), open_asset('m_av3.jpeg'), open_asset('m_av4.jpeg'), 
+  open_asset('m_av5.jpeg'), open_asset('m_av6.jpeg'), open_asset('m_av7.jpeg'), open_asset('m_av8.jpeg'), open_asset('m_av9.jpeg'), 
+  open_asset('m_av10.jpeg'), open_asset('m_av11.jpeg'), open_asset('m_av12.jpeg'), open_asset('m_av13.jpeg'), open_asset('m_av14.jpeg'), 
+  open_asset('m_av15.jpeg')]
+  u.avatar = avatar_array.shuffle.sample
+  u.gender = "Male"
   u.save
 end
 

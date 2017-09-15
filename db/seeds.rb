@@ -56,18 +56,18 @@ Event.destroy_all
 puts "Creating female users...."
 
 female_first_name_array = ['Cherrita', 'Barbra', 'Tally', 'Auberta', 'Ingaberg', 'Ameline', 'Melessa', 'Caroline', 'Livvy', 'Dorothee', 'Abbi',
-'Stormi', 'Hermine', 'Fey','Jeanie','Norene','Chastity','Cloris','Liane','Donica','Corina','Tersina','Marylinda','Erminia','Myrlene',
-'Deeann','Melinda','Rani','Malinde']
-female_last_name_array = ['Tullius','Crawford','Colton','Burr','Tolve','Hillenbach','Aijian','Batic','Shearrion','Lesse','Mayman','Abel','Barber',
-'Monien','Dumay','Stokey','Gillis','Pisapio','Sacco','Peckham','Hind','Furno','Anzalone','Rimbach','Peterson','Rosenkrantz','Melinda Beane',
-'Dapice', 'Moura']
+                          'Stormi', 'Hermine', 'Fey', 'Jeanie', 'Norene', 'Chastity', 'Cloris', 'Liane', 'Donica', 'Corina', 'Tersina', 'Marylinda', 
+                          'Erminia', 'Myrlene', 'Deeann', 'Melinda', 'Rani', 'Malinde']
+female_last_name_array = ['Tullius', 'Crawford','Colton','Burr','Tolve','Hillenbach','Aijian','Batic','Shearrion','Lesse','Mayman','Abel','Barber',
+                          'Monien','Dumay','Stokey','Gillis','Pisapio','Sacco','Peckham','Hind','Furno','Anzalone','Rimbach','Peterson','Rosenkrantz',
+                          'Beane', 'Dapice', 'Moura']
 female_avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_asset('f_av3.jpeg'), open_asset('f_av4.jpeg'), 
-open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'), 
-open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'), 
-open_asset('f_av15.jpeg'), open_asset('f_av16.jpeg'), open_asset('f_av17.jpeg'), open_asset('f_av18.jpeg'), open_asset('f_av19.jpeg'), 
-open_asset('f_av20.jpeg'), open_asset('f_av21.jpeg'), open_asset('f_av22.jpeg'), open_asset('f_av23.jpeg'), open_asset('f_av24.jpeg'), 
-open_asset('f_av25.jpeg'), open_asset('f_av26.jpeg'), open_asset('f_av27.jpeg'), open_asset('f_av28.jpeg'), open_asset('f_av29.jpeg'), 
-open_asset('f_av30.jpeg')]
+                      open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'), 
+                      open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'), 
+                      open_asset('f_av15.jpeg'), open_asset('f_av16.jpeg'), open_asset('f_av17.jpeg'), open_asset('f_av18.jpeg'), open_asset('f_av19.jpeg'), 
+                      open_asset('f_av20.jpeg'), open_asset('f_av21.jpeg'), open_asset('f_av22.jpeg'), open_asset('f_av23.jpeg'), open_asset('f_av24.jpeg'), 
+                      open_asset('f_av25.jpeg'), open_asset('f_av26.jpeg'), open_asset('f_av27.jpeg'), open_asset('f_av28.jpeg'), open_asset('f_av29.jpeg'), 
+                      open_asset('f_av30.jpeg')]
 
 30.times do
   u=User.new
@@ -90,18 +90,18 @@ end
 puts "Creating male users...."
 
 male_first_name_array = ['Valentine Mcgill','Abran','Hiram','Virge','Shayne','Frederico','Burnaby','Kean','Em','Corny',
-  'Sawyere','Rouvin','Rice','Sidnee','Gael','Yard','Andrea','Laurens','Barri','Felipe','Bruis','Brew','Nicolis','Buck',
-  'Matias','Garth','Baldo','Leonid','Alfonse']
+                        'Sawyere','Rouvin','Rice','Sidnee','Gael','Yard','Andrea','Laurens','Barri','Felipe','Bruis',
+                        'Brew','Nicolis','Buck','Matias','Garth','Baldo','Leonid','Alfonse']
 male_last_name_array = ['Mcgill','Nychka','Cingolani','Delmon','Dangora','Ohare','Sargentich','Dubois','Alexis','Mcdaniel','Stuber',
-  'Hanreddy','Berrizbeitia','Boossarangsi','Santo','Packer','Grabar','Weissbourd','Pliego','Huber','Bolafka','Tennyson','Tootell','Messere',
-  'Davisson','Morvay','Labunka','Ducharme','Quinn']
+                        'Hanreddy','Berrizbeitia','Boossarangsi','Santo','Packer','Grabar','Weissbourd','Pliego','Huber','Bolafka',
+                        'Tennyson','Tootell','Messere', 'Davisson','Morvay','Labunka','Ducharme','Quinn']
 male_avatar_array = [open_asset('m_av1.jpeg'), open_asset('m_av2.jpeg'), open_asset('m_av3.jpeg'), open_asset('m_av4.jpeg'), 
-  open_asset('m_av5.jpeg'), open_asset('m_av6.jpeg'), open_asset('m_av7.jpeg'), open_asset('m_av8.jpeg'), open_asset('m_av9.jpeg'), 
-  open_asset('m_av10.jpeg'), open_asset('m_av11.jpeg'), open_asset('m_av12.jpeg'), open_asset('m_av13.jpeg'), open_asset('m_av14.jpeg'), 
-  open_asset('m_av15.jpeg'), open_asset('m_av16.jpeg'), open_asset('m_av17.jpeg'), open_asset('m_av18.jpeg'), open_asset('m_av19.jpeg'), 
-  open_asset('m_av20.jpeg'), open_asset('m_av21.jpeg'), open_asset('m_av22.jpeg'), open_asset('m_av23.jpeg'), open_asset('m_av24.jpeg'), 
-  open_asset('m_av25.jpeg'), open_asset('m_av26.jpeg'), open_asset('m_av27.jpeg'), open_asset('m_av28.jpeg'), open_asset('m_av29.jpeg'), 
-  open_asset('m_av30.jpeg')]
+                    open_asset('m_av5.jpeg'), open_asset('m_av6.jpeg'), open_asset('m_av7.jpeg'), open_asset('m_av8.jpeg'), open_asset('m_av9.jpeg'), 
+                    open_asset('m_av10.jpeg'), open_asset('m_av11.jpeg'), open_asset('m_av12.jpeg'), open_asset('m_av13.jpeg'), open_asset('m_av14.jpeg'), 
+                    open_asset('m_av15.jpeg'), open_asset('m_av16.jpeg'), open_asset('m_av17.jpeg'), open_asset('m_av18.jpeg'), open_asset('m_av19.jpeg'), 
+                    open_asset('m_av20.jpeg'), open_asset('m_av21.jpeg'), open_asset('m_av22.jpeg'), open_asset('m_av23.jpeg'), open_asset('m_av24.jpeg'), 
+                    open_asset('m_av25.jpeg'), open_asset('m_av26.jpeg'), open_asset('m_av27.jpeg'), open_asset('m_av28.jpeg'), open_asset('m_av29.jpeg'), 
+                    open_asset('m_av30.jpeg')]
 
 30.times do
   first_name = male_first_name_array.shuffle.sample

@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+<!-- my events -->
+
+  <div class="content">
+      <span class="text">
+      <%= fa_icon'calendar' %> <%= formatted_time(event_url) %>
+    </span>
+    <%= link_to edit_event_path(@events_user), class: 'btn btn-primary btn-sm' do %>
+            <% fa_icon 'pencil' %>
+           <%= link_to events_user_path(event), method: :delete, class:'btn btn-danger btn-sm', remote: remote do %>
+            <% fa_icon 'trash' %>
+            <% end %>
+            <% end %>
+  </div>
+
+
+<!-- events im intersted in -->
+
+
+<!-- events im going to -->
+
+
+<!-- rate past events -->
 
 <% @events_user.each do |eu| %>
 <p>
@@ -10,8 +31,10 @@
   <strong>Rating:</strong>
   <%= eu.rating %>
 </p>
-
 <% end %>
 
 <%= link_to 'Edit', edit_events_user_path(@events_user) %> |
-<%= link_to 'Back', events_users_path %>
+<%= link_to 'Back', events_user_path %>
+
+
+

@@ -316,7 +316,7 @@ event25 = cat6.events.create!({
 event39 = cat6.events.create!({
   name: "Heading to the park ",
   description: "Gonna take a walk to check out Trinity Bellwoods",
-  cover_img: open_asset(' '),
+  cover_img: open_asset('photos2.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.646650,
@@ -492,7 +492,7 @@ event31 = cat12.events.create!({
 event35 = cat12.events.create!({
   name: "Board Game Challenge ",
   description: "Open challenge to anyone willing to try and beat me at board games",
-  cover_img: open_asset(' '),
+  cover_img: open_asset('games4.jpg'),
   start_date: Date.new(2017,rand(8..12),rand(1..30)),
   time: rand(0000..2359),
   lat: 43.650120,

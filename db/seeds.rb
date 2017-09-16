@@ -104,6 +104,7 @@ male_avatar_array = [open_asset('m_av1.jpg'), open_asset('m_av2.jpg'), open_asse
                     open_asset('m_av30.jpeg')]
 
 30.times do
+  u=User.new
   first_name = male_first_name_array.shuffle.sample
   u.first_name = first_name
   male_first_name_array = male_first_name_array.select{ |f| f != first_name }

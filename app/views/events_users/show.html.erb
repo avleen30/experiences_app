@@ -1,17 +1,5 @@
 <!-- my events -->
 
-  <div class="content">
-      <span class="text">
-      <%= fa_icon'calendar' %> <%= formatted_time(event_url) %>
-    </span>
-    <%= link_to edit_event_path(@events_user), class: 'btn btn-primary btn-sm' do %>
-            <% fa_icon 'pencil' %>
-           <%= link_to events_user_path(event), method: :delete, class:'btn btn-danger btn-sm', remote: remote do %>
-            <% fa_icon 'trash' %>
-            <% end %>
-            <% end %>
-  </div>
-
 
 <!-- events im intersted in -->
 

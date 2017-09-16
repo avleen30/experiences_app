@@ -95,7 +95,7 @@ male_first_name_array = ['Valentine','Abran','Hiram','Virge','Shayne','Frederico
 male_last_name_array = ['Mcgill','Nychka','Cingolani','Delmon','Dangora','Ohare','Sargentich','Dubois','Alexis','Mcdaniel','Stuber',
                         'Hanreddy','Berrizbeitia','Boossarangsi','Santo','Packer','Grabar','Weissbourd','Pliego','Huber','Bolafka',
                         'Tennyson','Tootell','Messere', 'Davisson','Morvay','Labunka','Ducharme','Quinn', 'Castellino']
-male_avatar_array = [open_asset('m_av1.jpeg'), open_asset('m_av2.jpeg'), open_asset('m_av3.jpeg'), open_asset('m_av4.jpeg'), 
+male_avatar_array = [open_asset('m_av1.jpg'), open_asset('m_av2.jpg'), open_asset('m_av3.jpeg'), open_asset('m_av4.jpeg'), 
                     open_asset('m_av5.jpeg'), open_asset('m_av6.jpeg'), open_asset('m_av7.jpeg'), open_asset('m_av8.jpeg'), open_asset('m_av9.jpeg'), 
                     open_asset('m_av10.jpeg'), open_asset('m_av11.jpeg'), open_asset('m_av12.jpeg'), open_asset('m_av13.jpeg'), open_asset('m_av14.jpeg'), 
                     open_asset('m_av15.jpeg'), open_asset('m_av16.jpeg'), open_asset('m_av17.jpeg'), open_asset('m_av18.jpeg'), open_asset('m_av19.jpeg'), 

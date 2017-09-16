@@ -57,10 +57,10 @@ puts "Creating female users...."
 
 female_first_name_array = ['Cherrita', 'Barbra', 'Tally', 'Auberta', 'Ingaberg', 'Ameline', 'Melessa', 'Caroline', 'Livvy', 'Dorothee', 'Abbi',
                           'Stormi', 'Hermine', 'Fey', 'Jeanie', 'Norene', 'Chastity', 'Cloris', 'Liane', 'Donica', 'Corina', 'Tersina', 'Marylinda', 
-                          'Erminia', 'Myrlene', 'Deeann', 'Melinda', 'Rani', 'Malinde']
+                          'Erminia', 'Myrlene', 'Deeann', 'Melinda', 'Rani', 'Malinde', 'Alice']
 female_last_name_array = ['Tullius', 'Crawford','Colton','Burr','Tolve','Hillenbach','Aijian','Batic','Shearrion','Lesse','Mayman','Abel','Barber',
                           'Monien','Dumay','Stokey','Gillis','Pisapio','Sacco','Peckham','Hind','Furno','Anzalone','Rimbach','Peterson','Rosenkrantz',
-                          'Beane', 'Dapice', 'Moura']
+                          'Beane', 'Dapice', 'Moura', 'Brown']
 female_avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_asset('f_av3.jpeg'), open_asset('f_av4.jpeg'), 
                       open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'), 
                       open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'), 
@@ -89,12 +89,12 @@ end
 
 puts "Creating male users...."
 
-male_first_name_array = ['Valentine Mcgill','Abran','Hiram','Virge','Shayne','Frederico','Burnaby','Kean','Em','Corny',
+male_first_name_array = ['Valentine','Abran','Hiram','Virge','Shayne','Frederico','Burnaby','Kean','Em','Corny',
                         'Sawyere','Rouvin','Rice','Sidnee','Gael','Yard','Andrea','Laurens','Barri','Felipe','Bruis',
-                        'Brew','Nicolis','Buck','Matias','Garth','Baldo','Leonid','Alfonse']
+                        'Brew','Nicolis','Buck','Matias','Garth','Baldo','Leonid','Alfonse', 'Steve']
 male_last_name_array = ['Mcgill','Nychka','Cingolani','Delmon','Dangora','Ohare','Sargentich','Dubois','Alexis','Mcdaniel','Stuber',
                         'Hanreddy','Berrizbeitia','Boossarangsi','Santo','Packer','Grabar','Weissbourd','Pliego','Huber','Bolafka',
-                        'Tennyson','Tootell','Messere', 'Davisson','Morvay','Labunka','Ducharme','Quinn']
+                        'Tennyson','Tootell','Messere', 'Davisson','Morvay','Labunka','Ducharme','Quinn', 'Castellino']
 male_avatar_array = [open_asset('m_av1.jpeg'), open_asset('m_av2.jpeg'), open_asset('m_av3.jpeg'), open_asset('m_av4.jpeg'), 
                     open_asset('m_av5.jpeg'), open_asset('m_av6.jpeg'), open_asset('m_av7.jpeg'), open_asset('m_av8.jpeg'), open_asset('m_av9.jpeg'), 
                     open_asset('m_av10.jpeg'), open_asset('m_av11.jpeg'), open_asset('m_av12.jpeg'), open_asset('m_av13.jpeg'), open_asset('m_av14.jpeg'), 

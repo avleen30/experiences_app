@@ -138,7 +138,7 @@
      <div class="container">
           <% @event.posts.reverse.each do |post| %>
         <div>
-              <%= post.created_at %>
+              <%= post.created_at.strftime("%B %d, %Y") %>
             <div><strong><%= post.user.first_name %></strong></div>
             <p><%= image_tag post.user.avatar_url(:thumb).gsub(".jpg", ".png") %></p>
             <div>

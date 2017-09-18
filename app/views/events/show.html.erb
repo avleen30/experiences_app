@@ -76,18 +76,15 @@
         <%= @event.creator_id %>
       </div>
 
-
 <!-- For User to delete event -->
 <% if current_user.id == @event.creator_id %>
   <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
 <% end %>
 
-
       <div>
         <strong>Longitude:</strong>
         <%= @event.lng %>
       </div>
-
 
       <div>
         <strong>Latitude:</strong>
@@ -101,8 +98,14 @@
     <% end %>
 
         <h5 id="creatortitle">Creator:</h5>
-          <%= render 'users/show' %>
+        <div class="container">
+          <div id="creatorimg"><img id="creatorimg" src="<%=@event.user.avatar %>"></div>
+        </div>
 
+         <div class="container">
+          <div><%= @event.user.first_name %></div> 
+          <div><%= @event.user.last_name %></div> 
+        </div>
   </div>
 
 <div class="col s7" id="disscusion">

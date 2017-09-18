@@ -1,9 +1,8 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-<% if current_user %>
   <li><%= link_to 'Search Experiences', events_path(current_user) %></li>
-  <li><%= link_to 'View Experiences', events_user_path(current_user) %></li>
-
+  <li><%= link_to 'View Experiences', events_users_path(current_user) %></li>
+  <% if current_user %>
   <li><%= link_to 'View Profile', user_path(current_user)%></li>
   <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
   <li class="divider"></li>
@@ -100,6 +99,11 @@
     <%= f.text_field :last_name %>
   </div>
 
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+
   <div class="field" style="height: 1em; width: 1em;">
     <%= f.label :avatar %><br>
     <%= f.file_field :avatar %>
@@ -170,7 +174,7 @@
   </div>
 
   <div class="timepicker field">
-    <%= f.label :time %>
+    <%= f.label :end_date %>
     <%= f.text_field :end_date %>
   </div>
 
@@ -185,6 +189,40 @@
     <%= f.text_field :lat %>
   </div>
 
+  var geocoder;
+  var map;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var Toronto = {lat: 43.6532, lng: -79.3832};
+    var map = new google.maps.Map(document.getElementById('event-map'), {
+      zoom: 12,
+      center: Toronto
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  }
+
+  function codeAddress() {
+    var address = document.getElementById('address').value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+<body onload="initialize()">
+ <div id="map" style="width: 320px; height: 480px;"></div>
+  <div>
+    <input id="address" type="textbox" value="Toronto">
+    <input type="button" value="Encode" onclick="codeAddress()">
+  </div>
+</body>
+
   <div class="actions">
     <%= f.submit %>
   </div>
@@ -194,19 +232,6 @@
 </div>
 
 <script type="text/javascript">
-
-$('.dropdown-button').dropdown({
-      inDuration: 300,
-      outDuration: 225,
-      constrainWidth: false, // Does not change width of dropdown to that of the activator
-      hover: true, // Activate on hover
-      gutter: 0, // Spacing from edge
-      belowOrigin: true, // Displays dropdown below the button
-      alignment: 'left', // Displays dropdown with edge aligned to the left of button
-      stopPropagation: false // Stops event propagation
-    }
-  );
-
 $('.parallax').parallax();
     $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal

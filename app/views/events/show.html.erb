@@ -142,10 +142,10 @@
 <div class="col s4" id="attendes">
 
 
-      <h5 id="attendestitle"> Attendes: </h5>
+    <h5 id="attendestitle"> Attendes: </h5>
     <% @event_users.each do |eu| %>
     <dd>
-    <dl >User # <%= eu.id %>
+    <dl ><%= image_tag eu.user.avatar %>
       <%= eu.user.first_name %>
       <%= eu.user.last_name %>
       is <strong> <%= eu.status %> </strong>

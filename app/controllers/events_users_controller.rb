@@ -32,7 +32,7 @@ class EventsUsersController < ApplicationController
       user_id: current_user.id,
       event_id: event.id,
       status: status
-    )
+      )
 
     respond_to do |format|
       if @events_user.save

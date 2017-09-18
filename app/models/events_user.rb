@@ -4,7 +4,7 @@ class EventsUser < ApplicationRecord
     belongs_to :event
 
     def events_user_params
-    params.require(:event).permit(:status)
+    params.require(:event).permit(:status, :name)
     end
 
 end

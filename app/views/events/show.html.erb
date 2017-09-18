@@ -109,34 +109,51 @@
   <% if current_user %>
          <h5 id="discussiontitle">Event Discussion:</h5>
 
+        <%= form_for [@event, @post], html: { class: 'post_form' } do |form| %>
 
-        <%= form_for [@event, @post] do |form| %>
+          <div class="form-group" >
 
-          <div class="form-group">
+              <%= form.text_area :content, rows: '4' %>
+              </div>
 
-              <%= form.text_area :content, rows: '4', class: 'form-control' %>
-          </div>
-          <%= form.submit 'Submit', class: 'btn btn-primary' %>
+              <div id="img-preview" class="form-group hide">
+                <img src="" alt="Preview">
+              </div>
 
-            <% end %>
+            <div class="form-group hide">
+              <%= form.file_field :attachment %>
+            </div>
 
-  <% end %>
+            <div class="form-group">
+              <a id="post-attachment" href="javascript:void(0);" class="pull-right btn btn-primary">
+              <%= fa_icon 'image' %>
+              </a>
+
+              <%= form.submit 'Post', class: 'btn btn-primary'%>
+            </div>
+          <% end %>
+      <% end %>
 
     <div>
      <div class="container">
-      <div>Post</div>
-
+          <% @event.posts.reverse.each do |post| %>
         <div>
-          <% @event.posts.each do |post| %>
-            <div><strong>User #<%= image_tag post.user.avatar %>'s post:</strong></div>
+              <%= post.created_at %>
+            <div><strong><%= post.user.first_name %></strong></div>
+            <p><%= image_tag post.user.avatar_url(:thumb).gsub(".jpg", ".png") %></p>
             <div>
-              <%= post.content %>
-            </div>
-
-          <% end %>
+              <p><%= post.content %></p>
+              </div>
+            <% if not post.attachment.file.nil? %>
+              <div class="attachment">
+                <%= image_tag post.attachment_url %>
+              </div>
+            <% end %>
+            <td><%= link_to 'Delete', post, method: :delete %></td>
         </div>
+          <% end %>
       </div>
-</div>
+  </div>
 
 </div>
 <div class="col s4" id="attendes">
@@ -165,3 +182,5 @@
 <script> $(document).ready(function(){
       $('.parallax').parallax();
     });</script>
+
+

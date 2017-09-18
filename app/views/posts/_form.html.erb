@@ -1,4 +1,4 @@
-<%= form_for(post) do |f| %>
+<%= form_for @post, html: { class: 'post_form' } do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :attachment %>
-    <%= f.text_field :attachment %>
+    <%= f.file_field :attachment %>
   </div>
 
   <div class="actions">

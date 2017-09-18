@@ -10,11 +10,10 @@
 
     margin-bottom: 20px;
 
-
 }
 .card {
  width:250px;
- height: 300px;
+ height: 350px;
  align-items: center;
  justify-content: center;
  margin-top: 25px;
@@ -96,12 +95,6 @@ h4{
 .fixed-action-btn.horizontal ul {
   top: -35px;
 }
-<<<<<<< HEAD
-icons {
-  height: 40px;
-  width: 40px;
-}
-=======
 
 #eventinfo{
 
@@ -171,5 +164,18 @@ icons {
   position: absolute;
 }
 
->>>>>>> feature/custompin
 
+#nameofevent{
+  height: 50px;
+  color: #26a69a;
+  margin: 10px;
+}
+#infouser{
+  
+}
+#creatorimg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}

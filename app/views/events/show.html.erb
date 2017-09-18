@@ -9,28 +9,9 @@
 </div>
 
 <div class="container" id="nameofevent">
-  <%= @event.name %>
-<<<<<<< HEAD
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Cover img:</strong>
-  <%= image_tag @event.cover_img %>
-</p>
-
-
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
-=======
+<h2>  <%= @event.name %> </h2>
 </div>
->>>>>>> feature/custompin
 
 <div class="container">
     <div id='event-detail-map' class="event_detail_map"></div>
@@ -61,18 +42,15 @@
         <%= @event.creator_id %>
       </div>
 
-<<<<<<< HEAD
 <!-- For User to delete event -->
 <% if current_user.id == @event.creator_id %>
   <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
 <% end %>
 
-=======
       <div>
         <strong>Longitude:</strong>
         <%= @event.lng %>
       </div>
->>>>>>> feature/custompin
 
       <div>
         <strong>Latitude:</strong>
@@ -86,8 +64,14 @@
     <% end %>
 
         <h5 id="creatortitle">Creator:</h5>
-          <%= render 'users/show' %>
+        <div class="container">
+          <div id="creatorimg"><img id="creatorimg" src="<%=@event.user.avatar %>"></div>
+        </div>
 
+         <div class="container">
+          <div><%= @event.user.first_name %></div> 
+          <div><%= @event.user.last_name %></div> 
+        </div>
   </div>
 
 <div class="col s7" id="disscusion">

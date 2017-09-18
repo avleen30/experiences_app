@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find params[:id]
-    @post = @event.posts.build
+    @post = Post.new(event_id: @event.id)
     @event_users = EventsUser.where(event_id: params[:id])
   end
 

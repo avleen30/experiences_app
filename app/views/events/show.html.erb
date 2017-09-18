@@ -128,7 +128,7 @@
 
         <div>
           <% @event.posts.each do |post| %>
-            <div><strong>User #<%= post.user_id %>'s post:</strong></div>
+            <div><strong>User #<%= image_tag post.user.avatar %>'s post:</strong></div>
             <div>
               <%= post.content %>
             </div>

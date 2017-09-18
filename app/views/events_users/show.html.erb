@@ -1,4 +1,13 @@
-<p id="notice"><%= notice %></p>
+<!-- my events -->
+
+
+<!-- events im intersted in -->
+
+
+<!-- events im going to -->
+
+
+<!-- rate past events -->
 
 <% @events_user.each do |eu| %>
 <p>
@@ -20,8 +29,10 @@
   <strong>Rating:</strong>
   <%= eu.rating %>
 </p>
-
 <% end %>
 
 <%= link_to 'Edit', edit_events_user_path(@events_user) %> |
-<%= link_to 'Back', events_users_path %>
+<%= link_to 'Back', events_user_path %>
+
+
+

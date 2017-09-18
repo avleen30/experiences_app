@@ -83,64 +83,12 @@ function initMap() {
               //   map: map
               // })
 
-           var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-              var icons = {
-                Drinks: {
-                  icon: iconBase + 'bars.png'
-                },
-                Trip: {
-                  icon: iconBase + 'hiker.png'
-                },
-                 Party: {
-                  icon: iconBase + 'firedept.png'
-                },
-                 Coffee: {
-                  icon: iconBase + 'coffee.png'
-                },
-                 Sports: {
-                  icon: iconBase + 'play.png'
-                },
-                 Walk: {
-                  icon: iconBase + 'trail.png'
-                },
-                 Meal: {
-                  icon: iconBase + 'snack_bar.png'
-                },
-                 Photography: {
-                  icon: iconBase + 'camera.png'
-                },
-                 Art: {
-                  icon: iconBase + 'arts.png'
-                },
-                 Cultural: {
-                  icon: iconBase + 'schools.png'
-                },
-                 Cook: {
-                  icon: iconBase + 'dining.png'
-                },
-                Shopping: {
-                  icon: iconBase + 'shopping.png'
-                },
-                Games: {
-                  icon: iconBase + 'volcano.png'
-                },
-                Others: {
-                  icon: iconBase + 'star.png'
-                }
-
-              };
-
-              //function addMarker(event) {
-                console.log(event);
-                console.log(event.icon.name);
-                var marker = new google.maps.Marker({
-                  position: {lat: event.lat, lng: event.lng},
-
-                  icon: icons[event.icon.name].icon,
-                  map: map
-                });
-              //}
-
+           var iconBase = 'http://wiac2017.com/wp-content/uploads/2016/05/';
+           var marker = new google.maps.Marker({
+              position: {lat: event.lat, lng: event.lng},
+              map: map,
+              icon: iconBase + 'map-pin-icon.png'
+            });
               marker.addListener('click', function() {
               infowindow.open(map, marker);
               });

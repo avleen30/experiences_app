@@ -10,11 +10,10 @@
 
     margin-bottom: 20px;
 
-
 }
 .card {
  width:250px;
- height: 300px;
+ height: 350px;
  align-items: center;
  justify-content: center;
  margin-top: 25px;
@@ -66,8 +65,11 @@
   height: 50px;
   border-radius: 5px;
 }
+maps-pin{
+  height:50px;
+}
 .carousel {
-  height: 350px;
+  height: 400px;
   margin-bottom: 100px;
   width:100%;
 
@@ -170,5 +172,17 @@ icons {
   position: absolute;
 }
 
+#nameofevent{
+  height: 50px;
+  color: #26a69a;
+  margin: 10px;
+}
+#infouser{
 
-
+}
+#creatorimg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}

@@ -1,9 +1,10 @@
+<div class="row">
 <div class="container" id="user_info">
   <div id="user-info" class="col s3">
 
 <li><%= image_tag @user.avatar %></li>
 
-  <h5><%= link_to @user.full_name, @user %></h5>
+  <h5><%= @user.full_name %></h5>
   </div>
   <% if @user.dob.present? %>
     <h5>
@@ -23,7 +24,7 @@
       </h6>
     <% end %>
 
-  <div class="col s4">
+  <div class="col s4" id="infouser">
     <div id="notice"><%= notice %></div>
       <div class="container">
         <h6 id="nameofcreator" style="position: absolute;"><%= link_to @user.full_name, @user %></h6>
@@ -58,6 +59,6 @@
     </div>
   </div>
 </div>
-
+</div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

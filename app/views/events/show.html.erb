@@ -24,6 +24,7 @@
       <p>
         <strong>Time:</strong>
         <%= @event.end_date %>
+
       </p>
 
     </div>
@@ -52,12 +53,37 @@
     </p>
     <%= f.submit :Update , class: 'btn btn-primary'%>
     <% end %>
+
+      </div>
+
+
+<!-- For User to delete event -->
+<% if current_user.id == @event.creator_id %>
+  <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
+<% end %>
+
+  <div class="col s4" id="creator">
+    <% if current_user.id == @event.creator_id %>
+      <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
+    <% end %>
     <br><br>
+
 
     <!-- Event-Map -->
     <div class="container-fluid">
       <div id='event-detail-map' class="event_detail_map"></div>
     </div>
+
+        <h5 id="creatortitle">Creator:</h5>
+        <div class="container">
+          <div id="creatorimg"><img id="creatorimg" src="<%=@event.user.avatar %>"></div>
+        </div>
+
+         <div class="container">
+          <div><%= @event.user.first_name %></div>
+          <div><%= @event.user.last_name %></div>
+          <div><%= @event.user.about %></div>
+        </div>
   </div>
 
 <!-- Event Posts Form-->

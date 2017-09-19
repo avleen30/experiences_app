@@ -4,36 +4,6 @@
     <img src="<%= @event.cover_img %>">
   </div>
 
-<div class="col s2" style="margin:1em;">
-  <div class="card">
-    <div class="card-image" style="height:8em; width:8em; border-radius:8em;">
-      <img src="<%= @event.user.avatar %>">
-      <span class="card-title"><%= @event.name %></span>
-    </div>
-    <div class="card-content">
-
-      <p>
-        <strong>Event:</strong>
-        <%= @event.name %>
-      </p>
-      <p>
-        <strong>Date:</strong>
-        <%= @event.start_date %>
-      </p>
-
-      <p>
-        <strong>Time:</strong>
-        <%= @event.end_date %>
-
-      </p>
-
-    </div>
-    <div class="card-action">
-      <a href="/events/<%= @event.id %>"></a>
-    </div>
-  </div>
-</div>
-
 </div>
 
 
@@ -76,7 +46,11 @@
 
         <h5 id="creatortitle">Creator:</h5>
         <div class="container">
-          <div id="creatorimg"><img id="creatorimg" src="<%=@event.user.avatar %>"></div>
+          <div id="creatorimg">
+          <%= link_to user_path(@event.user) do %>
+            <img id="creatorimg" src="<%=@event.user.avatar %>">
+          <% end %>
+          </div>
         </div>
 
          <div class="container">
@@ -149,14 +123,15 @@
       <% @event_users.each do |eu| %>
       <dd>
       <ul class="collection">
+      <%= link_to user_path(eu.user) do %>
       <dl><%= image_tag eu.user.avatar %>
+      <% end %>
         <%= eu.user.full_name %>
         is <strong> <%= eu.status %> </strong></dl>
       </dd>
       <% end %>
     </div>
 </div>
-
 
 
 <script>

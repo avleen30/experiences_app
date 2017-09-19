@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   def user_params
     params.require(:user).permit(:name, :about, :cover,
-                                 :sex, :dob, :location, :phone_number, :avatar)
+                                 :sex, :dob, :location, :phone_number, :avatar, :about)
   end
 
   def self.authenticate_with_credentials(email, password)

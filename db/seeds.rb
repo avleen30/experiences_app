@@ -56,18 +56,34 @@ Event.destroy_all
 puts "Creating female users...."
 
 female_first_name_array = ['Cherrita', 'Barbra', 'Tally', 'Auberta', 'Ingaberg', 'Ameline', 'Melessa', 'Caroline', 'Livvy', 'Dorothee', 'Abbi',
-                          'Stormi', 'Hermine', 'Fey', 'Jeanie', 'Norene', 'Chastity', 'Cloris', 'Liane', 'Donica', 'Corina', 'Tersina', 'Marylinda', 
+                          'Stormi', 'Hermine', 'Fey', 'Jeanie', 'Norene', 'Chastity', 'Cloris', 'Liane', 'Donica', 'Corina', 'Tersina', 'Marylinda',
                           'Erminia', 'Myrlene', 'Deeann', 'Melinda', 'Rani', 'Malinde', 'Alice']
 female_last_name_array = ['Tullius', 'Crawford','Colton','Burr','Tolve','Hillenbach','Aijian','Batic','Shearrion','Lesse','Mayman','Abel','Barber',
                           'Monien','Dumay','Stokey','Gillis','Pisapio','Sacco','Peckham','Hind','Furno','Anzalone','Rimbach','Peterson','Rosenkrantz',
                           'Beane', 'Dapice', 'Moura', 'Brown']
-female_avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_asset('f_av3.jpeg'), open_asset('f_av4.jpeg'), 
-                      open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'), 
-                      open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'), 
-                      open_asset('f_av15.jpeg'), open_asset('f_av16.jpeg'), open_asset('f_av17.jpeg'), open_asset('f_av18.jpeg'), open_asset('f_av19.jpeg'), 
-                      open_asset('f_av20.jpeg'), open_asset('f_av21.jpeg'), open_asset('f_av22.jpeg'), open_asset('f_av23.jpeg'), open_asset('f_av24.jpeg'), 
-                      open_asset('f_av25.jpeg'), open_asset('f_av26.jpeg'), open_asset('f_av27.jpeg'), open_asset('f_av28.jpeg'), open_asset('f_av29.jpeg'), 
+female_avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_asset('f_av3.jpeg'), open_asset('f_av4.jpeg'),
+                      open_asset('f_av5.jpeg'), open_asset('f_av6.jpeg'), open_asset('f_av7.jpeg'), open_asset('f_av8.jpeg'), open_asset('f_av9.jpeg'),
+                      open_asset('f_av10.jpeg'), open_asset('f_av11.jpeg'), open_asset('f_av12.jpeg'), open_asset('f_av13.jpeg'), open_asset('f_av14.jpeg'),
+                      open_asset('f_av15.jpeg'), open_asset('f_av16.jpeg'), open_asset('f_av17.jpeg'), open_asset('f_av18.jpeg'), open_asset('f_av19.jpeg'),
+                      open_asset('f_av20.jpeg'), open_asset('f_av21.jpeg'), open_asset('f_av22.jpeg'), open_asset('f_av23.jpeg'), open_asset('f_av24.jpeg'),
+                      open_asset('f_av25.jpeg'), open_asset('f_av26.jpeg'), open_asset('f_av27.jpeg'), open_asset('f_av28.jpeg'), open_asset('f_av29.jpeg'),
                       open_asset('f_av30.jpeg')]
+
+
+about_array = ["Guess I'm a bit of a freak,still uncomplicated and social.Sometimes I might seem a little shy at the first look, but once you got through my outer shell, I'm always ready for a joke, a serious talk,or some more or less crazy actions.I'm clumsy and perfection is definitely not my mission. Sometimes I might be a bit too honest.I'm pretty independent,though I do love coming home to my friends, my dog, my family.",
+                "The older I get,the more nomadic I am.Music is like breathing,eating and drinking to me,just take it all in every day. I work as a music therapist in a psychiatric and psychosomatic hospital and love my job",
+                "I do love urbanity, dancing all night,strolling around the city,chasing stuff on fleamarkets and drinking coffee & beer in old Viennese cafès",
+                "I'm a cross cultural, fun loving, nature and animal loving person.I love hip-hop, zouk, ragga & music from different cultures. Also love art, design, wine and any cool underground events",
+                "In essence I'm an artist and truly enjoy underground grassroots work i.e. graffiti transformation & collaborative art projects of all kinds including conceptualizing & art directing fun photo shoots.",
+                "I dress up as a super hero and travel Toronto cutting hair for strangers and the homeless on the streets. I enjoy movies, reptiles, board games and motorcycles.",
+                "I am an easy going , conscientious person who loves sports, movies and meeting new people",
+                " I enjoy watching life goes by, going to the cinema and find some chef d'oeuvre, discovering new ways to cook, travelling of course (the indescribable joy when I reach a new place I never been before), meeting great people, finding new authors which make you think a little bit differently, and philosophy",
+                "I love travelling,music,woodworking,nature, i m a carpenter and carve wood occasionally. i want to start kite surfing soon as possible.",
+                "My current mission is to experience everything! While my favorite song is playing in the background... :)",
+                "There are two loves in my life - Writing and Traveling. I am a dog lover. I love pancakes. I love red wine. And I love great adventures :)",
+                "I am an entrepreneur, spiritual person, love gadgets and like to meet new people"
+              ]
+
 
 30.times do
   u=User.new
@@ -84,6 +100,7 @@ female_avatar_array = [open_asset('f_av1.jpeg'), open_asset('f_av2.jpeg'), open_
   u.avatar = avatar
   female_avatar_array = female_avatar_array.select{ |a| a != avatar }
   u.gender = "Female"
+  u.about = about_array.shuffle.sample
   u.save
 end
 
@@ -95,12 +112,12 @@ male_first_name_array = ['Valentine','Abran','Hiram','Virge','Shayne','Frederico
 male_last_name_array = ['Mcgill','Nychka','Cingolani','Delmon','Dangora','Ohare','Sargentich','Dubois','Alexis','Mcdaniel','Stuber',
                         'Hanreddy','Berrizbeitia','Boossarangsi','Santo','Packer','Grabar','Weissbourd','Pliego','Huber','Bolafka',
                         'Tennyson','Tootell','Messere', 'Davisson','Morvay','Labunka','Ducharme','Quinn', 'Castellino']
-male_avatar_array = [open_asset('m_av1.jpg'), open_asset('m_av2.jpg'), open_asset('m_av3.jpeg'), open_asset('m_av4.jpeg'), 
-                    open_asset('m_av5.jpeg'), open_asset('m_av6.jpeg'), open_asset('m_av7.jpeg'), open_asset('m_av8.jpeg'), open_asset('m_av9.jpeg'), 
-                    open_asset('m_av10.jpeg'), open_asset('m_av11.jpeg'), open_asset('m_av12.jpeg'), open_asset('m_av13.jpeg'), open_asset('m_av14.jpeg'), 
-                    open_asset('m_av15.jpeg'), open_asset('m_av16.jpeg'), open_asset('m_av17.jpeg'), open_asset('m_av18.jpeg'), open_asset('m_av19.jpeg'), 
-                    open_asset('m_av20.jpeg'), open_asset('m_av21.jpeg'), open_asset('m_av22.jpeg'), open_asset('m_av23.jpeg'), open_asset('m_av24.jpeg'), 
-                    open_asset('m_av25.jpeg'), open_asset('m_av26.jpeg'), open_asset('m_av27.jpeg'), open_asset('m_av28.jpeg'), open_asset('m_av29.jpeg'), 
+male_avatar_array = [open_asset('m_av1.jpg'), open_asset('m_av2.jpg'), open_asset('m_av3.jpeg'), open_asset('m_av4.jpeg'),
+                    open_asset('m_av5.jpeg'), open_asset('m_av6.jpeg'), open_asset('m_av7.jpeg'), open_asset('m_av8.jpeg'), open_asset('m_av9.jpeg'),
+                    open_asset('m_av10.jpeg'), open_asset('m_av11.jpeg'), open_asset('m_av12.jpeg'), open_asset('m_av13.jpeg'), open_asset('m_av14.jpeg'),
+                    open_asset('m_av15.jpeg'), open_asset('m_av16.jpeg'), open_asset('m_av17.jpeg'), open_asset('m_av18.jpeg'), open_asset('m_av19.jpeg'),
+                    open_asset('m_av20.jpeg'), open_asset('m_av21.jpeg'), open_asset('m_av22.jpeg'), open_asset('m_av23.jpeg'), open_asset('m_av24.jpeg'),
+                    open_asset('m_av25.jpeg'), open_asset('m_av26.jpeg'), open_asset('m_av27.jpeg'), open_asset('m_av28.jpeg'), open_asset('m_av29.jpeg'),
                     open_asset('m_av30.jpeg')]
 
 30.times do
@@ -118,6 +135,7 @@ male_avatar_array = [open_asset('m_av1.jpg'), open_asset('m_av2.jpg'), open_asse
   u.avatar = avatar
   male_avatar_array = male_avatar_array.select{ |a| a != avatar }
   u.gender = "Male"
+  u.about = about_array.shuffle.sample
   u.save
 end
 
@@ -345,7 +363,7 @@ event26 = cat7.events.create!({
   lng: -79.386431,
   creator_id: User.all.shuffle.sample.id
 })
- 
+
 event40 = cat7.events.create!({
   name: "New restaurant @ Kensington Market",
   description: "I've heard good things...",
@@ -378,7 +396,7 @@ event27 = cat8.events.create!({
   lng: -79.388308,
   creator_id: User.all.shuffle.sample.id
 })
- 
+
 event41 = cat8.events.create!({
   name: "Architectural Admiration",
   description: "Planning to go take some photos of the unique buildings around UofT",
@@ -577,7 +595,7 @@ puts "Creating event attendees..."
   u = User.all.shuffle.sample
   eu.user = u
   eu.event = e
-  status_array = ["Attending", "Interested"]
+  status_array = ["Going", "Interested"]
   eu.status = status_array.shuffle.sample
   eu.save
 end

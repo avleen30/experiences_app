@@ -1,176 +1,138 @@
-<!-- Radio Button for Users to add status to events: Interested/Going -->
-<%= form_for EventsUser.new do |f| %>
-  <input type="hidden" value="<%= @event.id %>" name="event_id" />
-  <p>
-    <input name="interested" type="radio" id="interested" />
-    <label for="interested">Interested</label>
-  </p>
-  <p>
-    <input name="going" type="radio" id="going" />
-    <label for="going">Going</label>
-  </p>
-  <%= f.submit :Update %>
-<% end %>
-
-<%= render 'users/show' %>
-
 <!-- COVER IMAGE -->
-<div class="parallax-container">
-  <div class="parallax"><img src="<%=@event.cover_img%>"></div>
-</div>
+<div class="parallax-container" style="height:20em">
+  <div class="parallax">
+    <img src="<%= @event.cover_img %>">
+  </div>
 
+<div class="col s2" style="margin:1em;">
+  <div class="card">
+    <div class="card-image" style="height:8em; width:8em; border-radius:8em;">
+      <img src="<%= @event.user.avatar %>">
+      <span class="card-title"><%= @event.name %></span>
+    </div>
+    <div class="card-content">
 
-<div id="notice">
-  <%= notice %>
-</div>
-
-<div class="container" id="nameofevent">
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Cover img:</strong>
-  <%= image_tag @event.cover_img %>
-</p>
-
-
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
-
-</div>
-
-
-<div class="container">
-    <div id='event-detail-map' class="event_detail_map"></div>
-</div>
-
-
-<div class="row">
-  <div class="col s7" id="eventinfo">
-    <h5 id="eventtitle"> Event Info:</h5>
-      <div>
-        <strong>Description:</strong>
-        <%= @event.description %>
-      </div>
-
-
-      <div>
-        <strong>Start date:</strong>
+      <p>
+        <strong>Event:</strong>
+        <%= @event.name %>
+      </p>
+      <p>
+        <strong>Date:</strong>
         <%= @event.start_date %>
-      </div>
+      </p>
 
-      <div>
-        <strong>End date:</strong>
+      <p>
+        <strong>Time:</strong>
         <%= @event.end_date %>
-      </div>
+      </p>
 
-      <div>
-        <strong>Creator:</strong>
-        <%= @event.creator_id %>
-      </div>
-
-
-<!-- For User to delete event -->
-<% if current_user.id == @event.creator_id %>
-  <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
-<% end %>
-
-
-      <div>
-        <strong>Longitude:</strong>
-        <%= @event.lng %>
-      </div>
-
-
-      <div>
-        <strong>Latitude:</strong>
-        <%= @event.lat %>
-      </div>
+    </div>
+    <div class="card-action">
+      <a href="/events/<%= @event.id %>"></a>
+    </div>
   </div>
+</div>
 
-  <div class="col s4" id="creator">
-    <% if current_user.id == @event.creator_id %>
-      <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
+</div>
+
+
+<div class="container-fluid row" style="background color:grey;">
+<!-- Radio Button for Users to add status to events: Interested/Going -->
+    <div class="col s3" id="attendes">
+    <h5 id="attendestitle">Status:</h5>
+    <%= form_for EventsUser.new do |f| %>
+    <input type="hidden" value="<%= @event.id %>" name="event_id" />
+    <p>
+      <input name="interested" type="radio" id="interested" />
+      <label for="interested">Interested</label>
+    </p>
+    <p>
+      <input name="going" type="radio" id="going" />
+      <label for="going">Going</label>
+    </p>
+    <%= f.submit :Update , class: 'btn btn-primary'%>
     <% end %>
+    <br><br>
 
-        <h5 id="creatortitle">Creator:</h5>
-          <%= render 'users/show' %>
-
+    <!-- Event-Map -->
+    <div class="container-fluid">
+      <div id='event-detail-map' class="event_detail_map"></div>
+    </div>
   </div>
 
-<div class="col s7" id="disscusion">
-  <% if current_user %>
-         <h5 id="discussiontitle">Event Discussion:</h5>
+<!-- Event Posts Form-->
 
-        <%= form_for [@event, @post], html: { class: 'post_form' } do |form| %>
+  <div class="col s5" id="disscusion">
+    <% if current_user %>
+           <h5 id="discussiontitle">Event Discussion:</h5>
 
-          <div class="form-group" >
+          <%= form_for [@event, @post], html: { class: 'post_form' } do |form| %>
 
-              <%= form.text_area :content, rows: '4' %>
+            <div class="form-group" >
+
+                <%= form.text_area :content, rows: '4' %>
+                </div>
+
+                <div id="img-preview" class="form-group hide">
+                  <img src="" alt="Preview">
+                </div>
+
+              <div class="form-group hide">
+                <%= form.file_field :attachment %>
               </div>
 
-              <div id="img-preview" class="form-group hide">
-                <img src="" alt="Preview">
-              </div>
+              <div class="form-group">
+                <a id="post-attachment" href="javascript:void(0);" class="pull-right btn btn-primary">
+                <%= fa_icon 'image' %>
+                </a>
 
-            <div class="form-group hide">
-              <%= form.file_field :attachment %>
-            </div>
-
-            <div class="form-group">
-              <a id="post-attachment" href="javascript:void(0);" class="pull-right btn btn-primary">
-              <%= fa_icon 'image' %>
-              </a>
-
-              <%= form.submit 'Post', class: 'btn btn-primary'%>
-            </div>
-          <% end %>
-      <% end %>
-
-    <div>
-     <div class="container">
-          <% @event.posts.reverse.each do |post| %>
-        <div>
-              <%= post.created_at.strftime("%B %d, %Y") %>
-            <div><strong><%= post.user.first_name %></strong></div>
-            <p><%= image_tag post.user.avatar_url(:thumb).gsub(".jpg", ".png") %></p>
-            <div>
-              <p><%= post.content %></p>
-              </div>
-            <% if not post.attachment.file.nil? %>
-              <div class="attachment">
-                <%= image_tag post.attachment_url %>
+                <%= form.submit 'Post', class: 'btn btn-primary'%>
               </div>
             <% end %>
-            <td><%= link_to 'Delete', post, method: :delete %></td>
+        <% end %>
+      <div>
+
+  <!-- Event Posts rendering-->
+       <div class="container">
+            <% @event.posts.reverse.each do |post| %>
+          <div>
+          <ul class="collection">
+                <%= post.created_at.strftime("%B %d, %Y") %>
+              <div><strong><%= post.user.first_name %></strong></div>
+              <p><%= image_tag post.user.avatar_url(:thumb).gsub(".jpg", ".png") %></p>
+              <div>
+                <p><%= post.content %></p>
+                </div>
+              <% if not post.attachment.file.nil? %>
+                <div class="attachment">
+                  <%= image_tag post.attachment_url %>
+                </div>
+              <% end %>
+              <td><%= link_to 'Delete', post, method: :delete %></td>
+          </div>
+          <hr>
+            <% end %>
         </div>
-          <% end %>
-      </div>
+    </div>
+
   </div>
 
+  <!-- Event Attendees -->
+  <div class="col s3" id="attendes">
+      <h5 id="attendestitle"> Attendees: </h5>
+      <% @event_users.each do |eu| %>
+      <dd>
+      <ul class="collection">
+      <dl><%= image_tag eu.user.avatar %>
+        <%= eu.user.full_name %>
+        is <strong> <%= eu.status %> </strong></dl>
+      </dd>
+      <% end %>
+    </div>
 </div>
-<div class="col s4" id="attendes">
 
 
-    <h5 id="attendestitle"> Attendes: </h5>
-    <% @event_users.each do |eu| %>
-    <dd>
-    <dl ><%= image_tag eu.user.avatar %>
-      <%= eu.user.first_name %>
-      <%= eu.user.last_name %>
-      is <strong> <%= eu.status %> </strong>
-    </dl>
-    </dd>
-    <% end %>
 
-  </div>
 <script>
   window.event = <%== @event.to_json %>;
 </script>

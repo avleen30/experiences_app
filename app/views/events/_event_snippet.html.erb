@@ -1,0 +1,84 @@
+<div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="<%= @event.user.avatar %>">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= @event.user.full_name %></p>
+          <p class="teal-text text-lighten-2"><%= @event.name %></p>
+          <p><%= @event.description %></p>
+          <p><%= @event.start_date %></p>
+        </div>
+        <div class="card-action">
+          <a href="#"><%= @event.user.email %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="<%= @event.user.avatar %>">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+
+ <!--  from scratch attempt -->
+
+  <div class="container-fluid row">
+
+      <div class="row s3" id="attendes">
+          <h5 class="attendestitle"> Created by: </h5>
+        <div class="image circle">
+          <img src="<%= @event.user.avatar %>">
+        </div>
+        <div class="col s3">
+          <%= @event.user.full_name %><br>
+          <%= @event.user.email %>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- ------------------------------------------------ -->
+
+  <!-- Event-Details -->
+
+    <div class="col s5">
+      <h1 class="header center teal-text text-lighten-2"><%= @event.name %></h1>
+      <div class="row center">
+        <h5 class="header col s12 light"><%= @event.description %></h5>
+      </div>
+      <div class="row center">
+        <h5 class="header col s12 light"><%= @event.start_date %></h5>
+      </div>
+      </div>
+
+    <!-- Event Creator Info-->
+    <div class="card small col s3">
+
+
+          <div class="card-image">
+            <img src="<%= @event.user.avatar %>">
+              <span class="card-title"><%= @event.user.full_name %></span>
+                </div>
+                    <div class="card-content">
+                      <%= @event.user.email %>
+                    </div>
+        <% if current_user.id == @event.creator_id %>
+        <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
+        <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
+      <% end %>
+    </div>
+  </div>
+</div>

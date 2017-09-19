@@ -4,13 +4,28 @@
     <img src="<%= @event.cover_img %>">
   </div>
 
+  <div id="index-banner" class="parallax-container">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2"><%= @event.name %></h1>
+        <div class="row center">
+          <h5 class="header col s12 light"><p><%= @event.description %></p>
+          </h5>
+          <p><%= @event.start_date %></p>
+          <p><%= @event.time %></p>
+        </div>
+      </div>
+    </div>
+
+
 </div>
 
-
 <div class="container-fluid row" style="background color:grey;">
+
+<div class="col s3">
 <!-- Radio Button for Users to add status to events: Interested/Going -->
-    <div class="col s3" id="attendes">
-    <h5 id="attendestitle">Status:</h5>
+    <div class="row" id="attendes">
+    <h6 id="attendestitle">Status:</h6>
     <%= form_for EventsUser.new do |f| %>
     <input type="hidden" value="<%= @event.id %>" name="event_id" />
     <p>
@@ -23,48 +38,44 @@
     </p>
     <%= f.submit :Update , class: 'btn btn-primary'%>
     <% end %>
+    </div>
 
-      </div>
+  <div class="row" id="creator">
+     <!-- Creator Details -->
 
+        <h6 id="creatortitle">Creator:</h6>
+        <div class="container">
+          <div id="creatorimg">
+          <%= link_to user_path(@event.user) do %>
+          <div><%= @event.user.full_name %></div>
+            <img id="creatorimg" src="<%=@event.user.avatar %>">
+          </div>
+          <% end %>
+        </div>
 
-<!-- For User to delete event -->
-<% if current_user.id == @event.creator_id %>
-  <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
-<% end %>
+         <div class="container">
 
-  <div class="col s4" id="creator">
-    <% if current_user.id == @event.creator_id %>
-      <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
-    <% end %>
-    <br><br>
+          <div><%= @event.user.about %></div>
+          <% if current_user.id == @event.creator_id %>
+            <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
+            <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
+            <% end %>
+          </div>
+          <br><br>
 
-
-    <!-- Event-Map -->
+          <!-- Event-Map -->
     <div class="container-fluid">
       <div id='event-detail-map' class="event_detail_map"></div>
     </div>
 
-        <h5 id="creatortitle">Creator:</h5>
-        <div class="container">
-          <div id="creatorimg">
-          <%= link_to user_path(@event.user) do %>
-            <img id="creatorimg" src="<%=@event.user.avatar %>">
-          <% end %>
-          </div>
-        </div>
-
-         <div class="container">
-          <div><%= @event.user.first_name %></div>
-          <div><%= @event.user.last_name %></div>
-          <div><%= @event.user.about %></div>
-        </div>
+  </div>
   </div>
 
 <!-- Event Posts Form-->
 
   <div class="col s5" id="disscusion">
     <% if current_user %>
-           <h5 id="discussiontitle">Event Discussion:</h5>
+           <h6 id="discussiontitle">Event Discussion:</h6>
 
           <%= form_for [@event, @post], html: { class: 'post_form' } do |form| %>
 
@@ -119,7 +130,7 @@
 
   <!-- Event Attendees -->
   <div class="col s3" id="attendes">
-      <h5 id="attendestitle"> Attendees: </h5>
+      <h6 id="attendestitle"> Attendees: </h6>
       <% @event_users.each do |eu| %>
       <dd>
       <ul class="collection">

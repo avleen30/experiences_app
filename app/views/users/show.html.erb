@@ -1,4 +1,5 @@
-<h5 id="creatortitle">Your Profile:</h5>
+<div class= "container">
+<h5 id="creatortitle" style="text-align:center;">Profile:</h5>
         <div class="container">
           <div id="creatorimg"><img id="creatorimg" src="<%=@user.avatar %>"></div>
         </div>
@@ -6,11 +7,43 @@
          <div class="container">
           <div><%= @user.full_name %></div>
           <div><%= @user.about %></div>
+          <div><%= @user.email %></div>
         </div>
 
+         <div class="titles">
 
+        <h5 id="creatortitle" style="text-align:center;">Events:</h5>
 
+      </div>
 
+<div class="row">
+<% @event.user.each do |u| %>
+        <div class="col s2" style="margin:1em;">
+          <div class="card large">
+            <div class="card-image">
+              <img src="<%= u.event.cover_img %>">
+              <span class="card-title"><%= u.event.name %></span>
+            </div>
+            <div class="card-content">
+              <p>
+                <strong>Date:</strong>
+                <%= u.event.start_date %>
+              </p>
+
+              <p>
+                <strong>Time:</strong>
+                <%= u.event.end_date %>
+              </p>
+
+            </div>
+            <div class="card-action">
+              <a href="/events/<%= eu.event.id %>"><%= u.status %></a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+</div>
 
 
 

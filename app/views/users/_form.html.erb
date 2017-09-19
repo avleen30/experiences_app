@@ -37,6 +37,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :about_me %>
+    <%= f.text_field :about %>
+  </div>
+
+  <div class="field">
     <%= f.label :gender %>
     <%= f.text_field :gender %>
   </div>
@@ -46,15 +51,8 @@
     <%= f.file_field :avatar %>
   </div>
 
-   <div class="field">
-    <%= f.label :about_me %>
-    <%= f.text_field :about %>
-  </div>
 
-  <div class="datepicker field">
-    <%= f.label :dob %>
-    <%= f.text_field :dob %>
-  </div>
+
 
   <div class="actions">
     <%= f.submit %>

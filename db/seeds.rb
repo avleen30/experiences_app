@@ -81,7 +81,8 @@ about_array = ["Guess I'm a bit of a freak,still uncomplicated and social.Someti
                 "I love travelling,music,woodworking,nature, i m a carpenter and carve wood occasionally. i want to start kite surfing soon as possible.",
                 "My current mission is to experience everything! While my favorite song is playing in the background... :)",
                 "There are two loves in my life - Writing and Traveling. I am a dog lover. I love pancakes. I love red wine. And I love great adventures :)",
-                "I am an entrepreneur, spiritual person, love gadgets and like to meet new people"
+                "I am an entrepreneur, spiritual person, love gadgets and like to meet new people",
+                "I love  yoga, craft beer, exploring the city and going on treks. When I'm not coding, you'll find me reading a good book or planning my next travel."
               ]
 
 

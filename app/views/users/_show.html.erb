@@ -3,12 +3,12 @@
 <li><%= image_tag @event.user.avatar %></li>
 <h5><%= link_to @event.user.full_name, @user %></h5>
 <h5><%= link_to @event.user.about, @user %></h5>
+<h5><%= link_to @event.user.email, @user %></h5>
+
 
 </div>
 
-<p>
-  <%= @event.user.email %>
-</p>
+
 
 </div>
 </div>

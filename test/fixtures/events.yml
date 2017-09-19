@@ -5,7 +5,7 @@ one:
   description: MyString
   cover_img: MyString
   start_date: 2017-09-06 19:07:46
-  end_date: 2017-09-06 19:07:46
+  time: 19:07:46
   creator_id: 1
   lng: 1.5
   lat: 1.5
@@ -15,7 +15,7 @@ two:
   description: MyString
   cover_img: MyString
   start_date: 2017-09-06 19:07:46
-  end_date: 2017-09-06 19:07:46
+  time: 19:07:46
   creator_id: 1
   lng: 1.5
   lat: 1.5

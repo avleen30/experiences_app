@@ -1,7 +1,7 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
   <li><%= link_to 'Search Experiences', events_path(current_user) %></li>
-  <li><%= link_to 'View Experiences', events_users_path(current_user) %></li>
+  <li><%= link_to 'View Experiences', events_user_path(current_user) %></li>
   <% if current_user %>
   <li><%= link_to 'View Profile', user_path(current_user)%></li>
   <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>

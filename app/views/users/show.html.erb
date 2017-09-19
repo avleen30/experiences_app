@@ -40,9 +40,7 @@
 
             </div>
             <div class="card-action">
-            <% current_user.created_events.each do |e| %>
-              <%= link_to "view event", event_path(e) %>
-              <% end %>
+              <%= link_to "view event", event_path(u) %>
             </div>
           </div>
         </div>

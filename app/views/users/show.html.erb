@@ -21,7 +21,7 @@
 
 <div class="row">
 <% @user.created_events.each do |u| %>
-        <div class="col s2" style="margin:1em;">
+        <div class="col s2" style="margin:2em;">
           <div class="card large">
             <div class="card-image">
               <img src="<%= u.cover_img %>">
@@ -49,8 +49,3 @@
         <% end %>
       </div>
 </div>
-
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

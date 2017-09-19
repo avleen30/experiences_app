@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :events
+  has_many :created_events, class_name:"Event", foreign_key: :creator_id
   has_many :ratings
   has_many :posts
 

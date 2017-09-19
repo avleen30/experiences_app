@@ -15,7 +15,6 @@
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
 //= require_tree .
-//= require image-picker
 
 var readURL = function(input, preview) {
   if (input.files && input.files[0]) {

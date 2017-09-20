@@ -596,7 +596,7 @@ puts "Creating event attendees..."
   u = User.all.shuffle.sample
   eu.user = u
   eu.event = e
-  status_array = ["Going", "Interested"]
+  status_array = ["Attending", "Interested"]
   eu.status = status_array.shuffle.sample
   eu.save
 end

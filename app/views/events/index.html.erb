@@ -51,16 +51,23 @@
 
 function contentData (event){
   console.log('COVER IMAGE', event.cover_img)
-return '<div id="content">' +
-          '<a href="/events/' + event.id + '" >' +
-          '<div id="siteNotice">'+
-          '</div>'+
-          '<img src="' + event.cover_img + '" />' +
-            '<h3 id="firstHeading" class="firstHeading">' + event.name + '</h3>'+
-
-          '<div id="bodyContent">'+ event.description +'</div>'+
-        '</a>' +
-        '</div>';
+  console.log('Description', event.description)
+  return '<div class="row">' +
+            '<div class="col s12 m7">' +
+            '<a href="/events/' + event.id + '" >' +
+              '<div class="card">' + 
+                '<div class="card-image">' +
+                  '<img src="' + event.cover_img.url + '" id="boximage"/>' +
+                  '<span class="card-title">' + event.name + '</span>' +
+                '</div>' +
+                '<div class="card-content">' +
+                   event.description +'</div>'+
+                '<div class="card-action">' +
+                '</div>' +
+              '</div>' +
+            '</a>' +
+            '</div>' +
+          '</div>';
 }
 function initMap() {
         var Toronto = {lat: 43.6532, lng: -79.3832};
@@ -126,8 +133,8 @@ function initMap() {
          </ul>
         </div>
         </div>
-        <div class="card-content">
-          <p><%=event.description%></p>
+        <div class="card-content" id="eventdesc">
+          <div id="eventdesc"><%=event.description%></div>
         </div>
         </a>
       </div>

@@ -7,13 +7,12 @@
     width: 100%;
     border-radius: 5px;
     border: 2px solid #ee6e73;
-
     margin-bottom: 20px;
 
 }
 .card {
- width:250px;
- height: 350px;
+ width:275px;
+ height: 375px;
  align-items: center;
  justify-content: center;
  margin-top: 25px;
@@ -21,6 +20,14 @@
  border: 2px solid #26a69a;
  overflow: hidden;
 
+}
+div.descrip{
+  padding:-5px;
+  margin: -5px;
+}
+div.card-content{
+  padding:-5px;
+  margin: -5px;
 }
 .card:hover  {
     border: 2px solid #26a69a;
@@ -69,7 +76,7 @@ maps-pin{
   height:50px;
 }
 .carousel {
-  height: 400px;
+  height: 475px;
   margin-bottom: 100px;
   width:100%;
 
@@ -172,10 +179,6 @@ icons {
   position: absolute;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> feature/fixusers
 
 #nameofevent{
   height: 50px;

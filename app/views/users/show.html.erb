@@ -1,8 +1,13 @@
+
+<div class="parallax-container">
+<div class="parallax" id="titlepic"><img src="https://twistedsifter.files.wordpress.com/2015/08/shade-of-mountain-blue-by-luca-zanon.jpg"></div>
+</div>
+
 <div class="row">
 <div class="container" id="user_info">
   <div id="user-info" class="col s3">
 
-<li><%= image_tag @user.avatar %></li>
+<%= image_tag @user.avatar %>
 
   <h5><%= @user.full_name %></h5>
   </div>
@@ -12,6 +17,7 @@
       <%= "#{pluralize(age(@user.dob), 'year')} old" %>
     </h5>
   <% end %>
+
 
 <div class="col s9">
 <p id="notice"><%= notice %></p>
@@ -24,11 +30,11 @@
       </h6>
     <% end %>
 
+
+
   <div class="col s4" id="infouser">
     <div id="notice"><%= notice %></div>
-      <div class="container">
-        <h6 id="nameofcreator" style="position: absolute;"><%= link_to @user.full_name, @user %></h6>
-      </div>
+      
   </div>
   <div class="col s7">
     <div class="container">
@@ -43,7 +49,7 @@
         <%= @user.gender %>
       </div>
 
-
+      
       <div>
         <strong>Dob:</strong>
         <%= @user.dob %>
@@ -54,3 +60,8 @@
 </div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+   
+<script>
+$(document).ready(function(){
+      $('.parallax').parallax();
+    });</script>

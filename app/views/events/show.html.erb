@@ -70,11 +70,16 @@
           <%= @event.user.about %>
         </div>
         <% if current_user.id == @event.creator_id %>
-          <%= link_to 'Edit Your Event', edit_event_path(@event) %> |
-            <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> |
-              <% end %>
-      </div>
-      <br><br>
+        <br>
+        <div>
+          <%= link_to 'Edit Your Event', edit_event_path(@event) %> 
+        </div>
+        <div>
+          <%= link_to 'Delete Your Event', event_path(@event), method: :delete %> 
+        </div>
+          <% end %>
+        </div>
+        <br>
 
       <!-- Event-Map -->
       <div class="container-fluid">
@@ -153,23 +158,25 @@
     <% if @event_users.count > 0 %>
       <% @event_users.each do |eu| %>
         <dd>
-          <ul class="collection">
-            <%= link_to user_path(eu.user) do %>
-              <dl>
-                <img id="creatorimg1" src="<%= eu.user.avatar %>">
-              </dl>
-              <% end %>
-                <dl>
-                  <%= eu.user.full_name %>
-                    is
-                    <strong> <%= eu.status %> </strong>
-                </dl>
-        </dd>
-        <% end %>
-          <% else %>
-            <p>No attendees yet - be the first to join!</p>
-            <% end %>
+<div id="attendee-list">
 
+  <%= link_to user_path(eu.user) do %>
+  <dl>
+    <img id="attendeeimg1" src="<%= eu.user.avatar %>">
+  </dl>
+  <% end %>
+  <dl>
+    <%= eu.user.full_name %>
+    is
+    <strong> <%= eu.status %> </strong>
+  </dl>
+</dd>
+<% end %>
+<% else %>
+<p>No attendees yet - be the first to join!</p>
+<% end %>
+
+</div>
   </div>
 </div>
 

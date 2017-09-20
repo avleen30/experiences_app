@@ -1,23 +1,32 @@
-<div class= "container">
-<h5 id="creatortitle" style="text-align:center;">Profile:</h5>
-        <div class="container">
-        <div><%= @user.full_name %></div>
-          <div id="creatorimg"><img id="creatorimg" src="<%=@user.avatar %>"></div>
-        </div>
 
-         <div class="container">
+<div class="parallax-container">
+  <div class="parallax"><img src="https://twistedsifter.files.wordpress.com/2015/08/shade-of-mountain-blue-by-luca-zanon.jpg"></div>
+</div>
 
-          <div><%= @user.about %></div>
-          <div><%= @user.email %></div>
-        </div>
+<div id="creatorimg"><img id="creatorimg" src="<%=@user.avatar %>"></div>
+</div>
 
-        <br><br>
+<div style="text-align:center; margin: 10px;">
+  <h5><%= @user.full_name %></h5>
+  <div><%= @user.email %></div>
+</div>
+<hr>
+    <div class="container">
+      
 
-         <div class="titles">
+      <div class="container">
 
-        <h5 id="creatortitle" style="text-align:center;">Events:</h5>
-
+        <div><%= @user.about %></div>
+        
       </div>
+
+    <br><br>
+
+
+
+<div class="titles">
+    <h5 id="creatortitleprofile" style="text-align:center;"><%= @user.first_name %>'s Events:</h5>
+</div>
 
 <div class="row">
 <% @user.created_events.each do |u| %>

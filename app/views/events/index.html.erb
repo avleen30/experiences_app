@@ -5,11 +5,6 @@
 <div class="col s3" style="padding: 1em;">
 
 
-<div class="titles">
-<h4>Experiences</h4>
-</div>
-
-
 <%= form_tag("/events", method: "get", class: "form_class") do %>
 
   <%= select_tag :event_type_filter, options_from_collection_for_select(@categories, :id, :name), include_blank: 'Select Experience'%>
@@ -55,7 +50,7 @@ function contentData (event){
   return '<div class="row">' +
             '<div class="col s12 m7">' +
             '<a href="/events/' + event.id + '" >' +
-              '<div class="card">' + 
+              '<div class="card">' +
                 '<div class="card-image">' +
                   '<img src="' + event.cover_img.url + '" id="boximage"/>' +
                   '<span class="card-title">' + event.name + '</span>' +

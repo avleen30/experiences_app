@@ -135,7 +135,9 @@
       <dd>
       <ul class="collection">
       <%= link_to user_path(eu.user) do %>
-      <dl><%= image_tag eu.user.avatar %>
+      <dl>
+      <img id="creatorimg" src="<%= eu.user.avatar %>">
+
       <% end %>
         <%= eu.user.full_name %>
         is <strong> <%= eu.status %> </strong></dl>
@@ -143,6 +145,7 @@
       <% end %>
     </div>
 </div>
+
 
 
 <script>

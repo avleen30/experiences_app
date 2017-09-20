@@ -99,9 +99,7 @@ maps-pin{
   overflow: hidden;
   margin-top:-5px;
 }
-img {
-  border-bottom: 2px solid #26a69a;
-}
+
 h4{
   color:white;
   padding:10px;
@@ -197,12 +195,13 @@ icons {
   color: #26a69a;
   margin: 10px;
 }
-#infouser{
 
-}
 #creatorimg{
   display: block;
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
+  margin-top: -50px;
+  margin-bottom: 20px;
+  
 }

@@ -170,19 +170,9 @@
 
   <div class="timepicker field">
     <%= f.label :time %>
-    <%= f.text_field :time %>
+    <div style="color:black;"><%= f.text_field :time %></div>
   </div>
 
-
-  <div class="field">
-    <%= f.label :lng, 'Longitude' %>
-    <%= f.text_field :lng %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lat, 'Latitude' %>
-    <%= f.text_field :lat %>
-  </div>
 
   <script type="text/javascript">
     var geocoder;
@@ -214,13 +204,24 @@
     }
   </script>
 
-<body onload="initialize()">
- <div id="map" style="width: 320px; height: 480px;"></div>
-  <div>
-    <input id="address" type="textbox" value="Toronto">
-    <input type="button" value="Encode" onclick="codeAddress()">
-  </div>
-</body>
+  <body onload="initialize()">
+  <div id="map" style="width: 100%; height: 300px;"></div>
+   <div>
+     <input id="address" type="textbox" value="Toronto">
+     <input type="button" value="Encode" onclick="codeAddress()">
+   </div>
+ </body>
+
+  <div class="field">
+  <%= f.label :lng, 'Longitude' %>
+  <%= f.text_field :lng %>
+</div>
+
+<div class="field">
+  <%= f.label :lat, 'Latitude' %>
+  <%= f.text_field :lat %>
+</div>
+
 
   <div class="actions">
     <%= f.submit %>

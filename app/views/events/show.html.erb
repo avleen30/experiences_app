@@ -43,12 +43,12 @@
   <div class="row" id="creator">
      <!-- Creator Details -->
 
-        <h6 id="creatortitle">Creator:</h6>
+        <h6 id="creatortitle1">Creator:</h6>
         <div class="container">
-          <div id="creatorimg">
+          <div id="creatorimg1">
           <%= link_to user_path(@event.user) do %>
           <div><%= @event.user.full_name %></div>
-            <img id="creatorimg" src="<%=@event.user.avatar %>">
+            <img id="creatorimg1" src="<%=@event.user.avatar %>">
           </div>
           <% end %>
         </div>
@@ -130,13 +130,13 @@
 
   <!-- Event Attendees -->
   <div class="col s3" id="attendes">
-      <h6 id="attendestitle"> Attendees: </h6>
+      <h6 id="attendestitle1"> Attendees: </h6>
       <% @event_users.each do |eu| %>
       <dd>
       <ul class="collection">
       <%= link_to user_path(eu.user) do %>
       <dl>
-      <img id="creatorimg" src="<%= eu.user.avatar %>">
+      <img id="creatorimg1" src="<%= eu.user.avatar %>">
 
       <% end %>
         <%= eu.user.full_name %>

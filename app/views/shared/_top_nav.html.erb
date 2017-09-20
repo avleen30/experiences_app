@@ -184,31 +184,35 @@
     <%= f.text_field :lat %>
   </div>
 
-  var geocoder;
-  var map;
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-    var Toronto = {lat: 43.6532, lng: -79.3832};
-    var map = new google.maps.Map(document.getElementById('event-map'), {
-      zoom: 12,
-      center: Toronto
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  }
+  <script type="text/javascript">
+    var geocoder;
+    var map;
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var toronto = {lat: 43.6532, lng: -79.3832};
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: toronto
+      })
+    }
 
-  function codeAddress() {
-    var address = document.getElementById('address').value;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-  }
+    function codeAddress() {
+      var address = document.getElementById('address').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+          document.getElementById("event_lat").value = results[0].geometry.location.lat()
+          document.getElementById("event_lng").value = results[0].geometry.location.lng()
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+  </script>
 
 <body onload="initialize()">
  <div id="map" style="width: 320px; height: 480px;"></div>

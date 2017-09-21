@@ -12,75 +12,161 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
+  <div class="field col s12">
+    <i class="material-icons">announcement</i><%= f.label :event_name %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="input-field">
+    <div class="input-field col s12">
     <select name="category_name">
       <option value="" disabled selected>Choose your category</option>
       <option value="Art">Art</option>
-      <option value="Coffee">Coffee</option>
-      <option value="Cooking">Cooking</option>
-      <option value="Culture">Culture</option>
-      <option value="Drinks">Drinks</option>
-      <option value="Games">Games</option>
-      <option value="Hiking">Hiking</option>
-      <option value="Meal">Meal</option>
-      <option value="Party">Party</option>
-      <option value="Photography">Photography</option>
-      <option value="Shopping">Shopping</option>
-      <option value="Sports">Sports</option>
-      <option value="Trip">Trip</option>
-      <option value="Walk">Walk</option>
-      <option value="Others">Others</option>
+      <option value="2">Coffee</option>
+      <option value="3">Cooking</option>
+      <option value="1">Culture</option>
+      <option value="2">Drinks</option>
+      <option value="3">Games</option>
+      <option value="1">Hiking</option>
+      <option value="2">Meal</option>
+      <option value="3">Party</option>
+      <option value="1">Photography</option>
+      <option value="2">Shopping</option>
+      <option value="3">Sports</option>
+      <option value="3">Trip</option>
+      <option value="3">Walk</option>
+      <option value="3">Others</option>
     </select>
     <label>Select a Category</label>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
+  <div class="field col s12">
+    <i class="material-icons">description</i><%= f.label :add_a_description %>
     <%= f.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :cover_img %><br>
+  <div class="field col s6">
+    <i class="material-icons">add_a_photo</i><%= f.label :cover_image %><br>
     <%= f.file_field :cover_img %>
   </div>
 
-  <!-- OR -->
-
-  <div class="field">
+  <div class="field col s6">
     <%= f.label :image_url %><br>
     <%= f.text_field :remote_cover_img_url %>
   </div>
 
-  <div class="datepicker field">
-   <%= f.text_field :start_date, class: 'datepicker', :placeholder => "Date"%>
+  <div class="datepicker field col s6">
+   <i class="material-icons">date_range</i><%= f.text_field :start_date, class: 'datepicker', :placeholder => "Date"%>
   </div>
 
-  <div class="timepicker field">
-    <%= f.label :time %>
-    <%= f.text_field :time %>
+  <div class="timepicker field col s6">
+    <i class="material-icons" style="color:black;">alarm</i><%= f.label :time %>
+    <div style="color:black;"><%= f.text_field :time %></div>
   </div>
 
 
-  <div class="field">
-    <%= f.label :lng, 'Longitude' %>
-    <%= f.text_field :lng %>
-  </div>
+  <script type="text/javascript">
+    var geocoder;
+    var map;
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var toronto = {lat: 43.6532, lng: -79.3832};
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: toronto
+      })
+    }
 
-  <div class="field">
-    <%= f.label :lat, 'Latitude' %>
-    <%= f.text_field :lat %>
-  </div>
+    function codeAddress() {
+      var address = document.getElementById('address').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+          document.getElementById("event_lat").value = results[0].geometry.location.lat()
+          document.getElementById("event_lng").value = results[0].geometry.location.lng()
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+  </script>
 
-  <div class="actions">
+  <body onload="initialize()">
+  <div id="map" style="width: 100%; height: 300px;"></div>
+   <div>
+     <input id="address" type="textbox" value="Toronto">
+     <input type="button" value="Encode" onclick="codeAddress()">
+   </div>
+ </body>
+
+  <div class="field col s6">
+  <i class="material-icons">explore</i><%= f.label :lng, 'Longitude' %>
+  <%= f.text_field :lng %>
+</div>
+
+<div class="field col s6">
+  <i class="material-icons">explore</i><%= f.label :lat, 'Latitude' %>
+  <%= f.text_field :lat %>
+</div>
+
+
+  <div class="actions waves-effect waves-light btn">
     <%= f.submit %>
   </div>
 <% end %>
 
 </div>
 
+<script type="text/javascript">
 
+
+
+$('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+
+
+$('.parallax').parallax();
+    $('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+    }
+  );
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+window.events = <%== @events.to_json %>;
+      $('select').material_select();
+       $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+
+</script>

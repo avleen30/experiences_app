@@ -117,12 +117,12 @@
 
 <%= form_for(Event.new) do |f| %>
 
-  <div class="field">
-    <%= f.label :name %>
+  <div class="field col s12">
+    <i class="material-icons">announcement</i><%= f.label :event_name %>
     <%= f.text_field :name %>
   </div>
 
-    <div class="input-field">
+    <div class="input-field col s12">
     <select name="category_name">
       <option value="" disabled selected>Choose your category</option>
       <option value="Art">Art</option>
@@ -144,27 +144,27 @@
     <label>Select a Category</label>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
+  <div class="field col s12">
+    <i class="material-icons">description</i><%= f.label :add_a_description %>
     <%= f.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :cover_img %><br>
+  <div class="field col s6">
+    <i class="material-icons">add_a_photo</i><%= f.label :cover_image %><br>
     <%= f.file_field :cover_img %>
   </div>
 
-  <div class="field">
+  <div class="field col s6">
     <%= f.label :image_url %><br>
     <%= f.text_field :remote_cover_img_url %>
   </div>
 
-  <div class="datepicker field">
-   <%= f.text_field :start_date, class: 'datepicker', :placeholder => "Date"%>
+  <div class="datepicker field col s6">
+   <i class="material-icons">date_range</i><%= f.text_field :start_date, class: 'datepicker', :placeholder => "Date"%>
   </div>
 
-  <div class="timepicker field">
-    <%= f.label :time %>
+  <div class="timepicker field col s6">
+    <i class="material-icons" style="color:black;">alarm</i><%= f.label :time %>
     <div style="color:black;"><%= f.text_field :time %></div>
   </div>
 
@@ -207,18 +207,18 @@
    </div>
  </body>
 
-  <div class="field">
-  <%= f.label :lng, 'Longitude' %>
+  <div class="field col s6">
+  <i class="material-icons">explore</i><%= f.label :lng, 'Longitude' %>
   <%= f.text_field :lng %>
 </div>
 
-<div class="field">
-  <%= f.label :lat, 'Latitude' %>
+<div class="field col s6">
+  <i class="material-icons">explore</i><%= f.label :lat, 'Latitude' %>
   <%= f.text_field :lat %>
 </div>
 
 
-  <div class="actions">
+  <div class="actions waves-effect waves-light btn">
     <%= f.submit %>
   </div>
 <% end %>

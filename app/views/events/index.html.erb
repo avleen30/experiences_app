@@ -105,6 +105,7 @@ function initMap() {
 <div class="titles">
 <h4><i class="material-icons"> explore</i>Explore Experiences</h4>
 </div>
+
 <div class="carousel">
 
 <% @events.each do |event| %>
@@ -116,7 +117,7 @@ function initMap() {
           <img src="<%=event.cover_img%>">
           <span class="card-title"><div id="cardeventname"><%=event.name%></div></span>
 
-        <div class="fixed-action-btn horizontal" style="position:absolute; float:right; bottom:5px; right:-5px">
+        <div class="fixed-action-btn horizontal click-to-toggle" style="position:absolute; float:right; bottom:5px; right:-5px;">
           <a class="btn-floating halfway-fab waves-effect waves-light #26a69a" title="Experience's Info">
           <i class="large material-icons">menu</i>
            </a>
@@ -140,6 +141,3 @@ function initMap() {
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_key %>&callback=initMap">
 </script>
 <script>$(document).ready(function(){$('.carousel').carousel();});</script>
-
-
-

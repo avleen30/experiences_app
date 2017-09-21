@@ -29,7 +29,9 @@ function initMap_detail() {
   var location = {
     lat: window.event.lat,
     lng: window.event.lng
+
   };
+  
   var map = new google.maps.Map(document.getElementById('event-detail-map'), {
     zoom: 12,
     center: location

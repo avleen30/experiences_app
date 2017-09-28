@@ -1,7 +1,16 @@
 # Experiences is a social app that allows you to create or join experiences close-by
 
 ## Screenshots
-![screenshot of Home Page]()
+![Home Page](https://github.com/avleen30/experiences_app/blob/master/Docs/Home.png?raw=true)
+![Home Page](https://github.com/avleen30/experiences_app/blob/master/Docs/Home2.png?raw=true)
+![Event Page 1](https://github.com/avleen30/experiences_app/blob/master/Docs/EventsPage.png?raw=true)
+![Event Page 2](https://github.com/avleen30/experiences_app/blob/master/Docs/EventsPage1.png?raw=true)
+![Event Page 3](https://github.com/avleen30/experiences_app/blob/master/Docs/EventsPage3.png?raw=true)
+![Upcoming Experiences](https://github.com/avleen30/experiences_app/blob/master/Docs/ViewExperiences.png?raw=true)
+![Creating an Event](https://github.com/avleen30/experiences_app/blob/master/Docs/CreateEvent.png?raw=true)
+![Profile Page](https://github.com/avleen30/experiences_app/blob/master/Docs/ViewProfile.png?raw=true)
+
+
 
 ## Setup
 1. git clone
